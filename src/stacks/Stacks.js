@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useState} from 'react';
 import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
 // import Loading from './src/components/Loading/Loading';
 // import IntroScreen from './src/Screens/Appscreen/IntroScreen/IntroScreen';
@@ -16,68 +16,69 @@ import Streaks from '../Screens/Appscreen/IntroScreen/Streaks';
 import DailyQuiz from '../Screens/Appscreen/IntroScreen/DailyQuiz';
 import FamilyQuiz from '../Screens/Appscreen/IntroScreen/FamilyQuiz';
 
-// Auth 
+
+// Auth
 import Signin from '../Screens/Auth/Signin';
 import Signup from '../Screens/Auth/Signup';
 
 //  Navigation
-import { NavigationContainer, createStaticNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  NavigationContainer,
+  createStaticNavigation,
+} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-
-const Drawer = createDrawerNavigator()
-const tab = createBottomTabNavigator()
-const AppStack = createNativeStackNavigator()
+const Drawer = createDrawerNavigator();
+const tab = createBottomTabNavigator();
+const AppStack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator({
-    initialRouteName: 'signup',
-    initialRouteName: 'streaks',
-    screenOptions: {
-      headerShown: false,
-    },
-    screens: {
-      streaks:Streaks,
-      signup: Signup,
-      signin: Signin,
-    },}
-  )
+  initialRouteName: 'signup',
+  screenOptions: {
+    headerShown: false,
+  },
+  screens: {
+    // streaks: Streaks,
+    streakss: Results,
+    signup: Signup,
+    signin: Signin,
+  },
+});
 
-  const AppNavigators = ()=>{
-    <Drawer.Navigator
-    //   initialRouteName="Home"
-      screenOptions={{
-        headerShown: false,
-        unmountOnBlur: true,
-      }}
+const AppNavigators = () => {
+  <Drawer.Navigator
+      // initialRouteName="Home"
+    screenOptions={{
+      headerShown: false,
+      unmountOnBlur: true,
+    }}
     //   drawerContent={props => <CoustomDrawer {...props} />
     //   }
-      >
-      {/* <Drawer.Screen name="Tab" component={MyTabs} /> */}
-      <Drawer.Screen name="Results" component={Results} />
+  >
+    {/* <Drawer.Screen name="Tab" component={MyTabs} /> */}
+    <Drawer.Screen name="Results" component={Results} />
+  </Drawer.Navigator>;
+};
 
+const Auth = createStaticNavigation(RootStack);
 
-
-      
-    </Drawer.Navigator>
-  }
-
- 
-  const Auth = createStaticNavigation(RootStack);
-
-const AppMain = ()=>{
-    return <AppStack.Navigator>
-        <AppStack.Screen name='AppNavigators' component={AppNavigators}></AppStack.Screen>
+const AppMain = () => {
+  return (
+    <AppStack.Navigator>
+      <AppStack.Screen
+        name="AppNavigators"
+        component={AppNavigators}></AppStack.Screen>
     </AppStack.Navigator>
-}
+  );
+};
 
 const Stacks = () => {
-    const [dummyAuthenticated, setDummyAuthenticated] = useState(true)
-  return dummyAuthenticated? <Auth/>:""
-    // <NavigationContainer>
-       
-//  {/* </NavigationContainer> */}
-  ;
+  const [dummyAuthenticated, setDummyAuthenticated] = useState(true);
+  return dummyAuthenticated ? <Auth /> : <AppMain />;
+  // <NavigationContainer>
+
+  //  {/* </NavigationContainer> */}
 };
 
 export default Stacks;

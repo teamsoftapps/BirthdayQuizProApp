@@ -107,7 +107,7 @@ const FamilyQuiz = () => {
                   height: responsiveHeight(2.4),
                   width: responsiveHeight(2.4),
                 }}
-                source={images.heart}></Image>
+                source={images.heart}/>
             </View>
             <View>
               <Text style={styles.lives}>4</Text>
@@ -142,7 +142,7 @@ const FamilyQuiz = () => {
             borderWidth: responsiveHeight(0.5),
             borderRadius: responsiveHeight(2),
             height: responsiveHeight(4),
-            // ,backgroundColor:"red",
+           
             marginBottom: responsiveHeight(2.5),
             alignItems: 'center',
             justifyContent: 'center',
@@ -164,32 +164,16 @@ const FamilyQuiz = () => {
               borderWidth: remainingSeconds < 5 ? null : responsiveHeight(0.3),
               overflow: 'hidden',
 
-              // alignItems: 'flex-end',
-              // height:responsiveHeight(2.2),
+            
               borderRadius: responsiveHeight(2),
               backgroundColor: colors.secondary,
               marginStart: responsiveHeight(0.2),
               alignSelf: 'center',
-              // paddingVertical:responsiveWidth(-6),
+         
               width,
-              // height:responsiveHeight(3.4),
+       
             }}>
-            {/* <View
-              style={{
-              height:"100%",
-                width: responsiveWidth(60),
-                backgroundColor: 'red',
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-  
-           
-              }}> */}
-            {/* <Text style={[styles.lives, {fontSize: responsiveFontSize(2.1)}]}>
-                {fillPercentage}
-              </Text> */}
-
-            {/* </View> */}
+    
           </Animated.View>
           <Image
             style={[

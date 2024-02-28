@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ScrollView
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
@@ -105,7 +106,7 @@ const Signup = () => {
         backgroundColor={'transparent'}
       />
       {/* <GestureHandlerRootView> */}
-      {/* <ScrollView> */}
+      <ScrollView>
       {/* {isLoading ? <MsgModal loader={true} /> : null} */}
 
       <View style={{marginTop: responsiveHeight(20)}}>
@@ -278,7 +279,7 @@ const Signup = () => {
         </View>
       </View>
       <View style={{height: responsiveHeight(9)}}></View>
-      {/* </ScrollView> */}
+      </ScrollView>
       {/* </GestureHandlerRootView> */}
     </ImageBackground>
   );
