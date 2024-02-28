@@ -11,7 +11,7 @@ import {
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
 //   import {SafeAreaView} from 'react-native-safe-area-context';
-// import { images } from '../../utlies';
+
 
 import {
   responsiveFontSize,
@@ -19,7 +19,7 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {colors, images} from '../../utlies';
-//   import {useNavigation} from '@react-navigation/native';
+  import {useNavigation} from '@react-navigation/native';
 //   import {AvoidSoftInput} from 'react-native-avoid-softinput';
 //   import {useFocusEffect} from '@react-navigation/native';
 //   import useToast from '../../Hooks';
@@ -27,13 +27,16 @@ import {colors, images} from '../../utlies';
 //   import MsgModal from '../../Common/Loader';
 //   import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 const Signup = () => {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
+  const [showEye, setShowEye] = useState(true);
+  const [confirmShowEye, setShowConfirmEye] = useState(true);
+
   const [value, setValue] = useState({
-    firstname: '',
-    lastname: '',
+    fullname: '',
     email: '',
     password: '',
+    confirmpassword: '',
   });
 
   console.log('value.firstname', value.firstname);
@@ -45,9 +48,9 @@ const Signup = () => {
       // showToast('error', 'Error', 'Enter Valid Email', 5000);
     }
     let body = {
-      firstName: value.firstname,
-      lastName: value.lastname,
+      fullname: value.fullname,
       email: value.email,
+      confirmpassword: value.confirmpassword,
       password: value.password,
     };
 
@@ -81,6 +84,14 @@ const Signup = () => {
   const btn = useCallback(n => {
     setSelected(n);
   }, []);
+
+  const onToggleEye = () => {
+    setShowEye(!showEye);
+  };
+
+  const onToggleConfirmEye = () => {
+    setShowConfirmEye(!confirmShowEye);
+  };
   return (
     <ImageBackground
       source={images.birthdayBGH}
@@ -110,46 +121,137 @@ const Signup = () => {
             alignSelf: 'center',
             marginTop: responsiveHeight(3),
           }}>
+    
           <View style={styles.txt_input}>
-            <TextInput
-              placeholder="First Name"
-              style={{color: 'white'}}
-              placeholderTextColor={'white'}
-              value={value.firstname}
-              onChangeText={pre => setValue(txt => ({...txt, firstname: pre}))}
-            />
+            <View style={{height: responsiveHeight(2)}}>
+              <Text
+                style={{
+                  color: colors.secondary,
+                }}>
+                Full name
+              </Text>
+            </View>
+            <View>
+              <TextInput
+                placeholder="Full name"
+                style={styles.text_Input}
+                placeholderTextColor={'white'}
+                value={value.fullname}
+                onChangeText={pre => setValue(txt => ({...txt, fullname: pre}))}
+              />
+            </View>
           </View>
           <View style={styles.txt_input}>
-            <TextInput
-              placeholder="Last Name"
-              style={{color: 'white'}}
-              placeholderTextColor={'white'}
-              value={value.lastname}
-              onChangeText={pre => setValue(txt => ({...txt, lastname: pre}))}
-            />
+            <View style={{height: responsiveHeight(2)}}>
+              <Text
+                style={{
+                  color: colors.secondary,
+                }}>
+                Email
+              </Text>
+            </View>
+            <View>
+              <TextInput
+                placeholder="Email"
+                style={styles.text_Input}
+                placeholderTextColor={'white'}
+                value={value.email}
+                onChangeText={pre => setValue(txt => ({...txt, email: pre}))}
+              />
+            </View>
           </View>
+
           <View style={styles.txt_input}>
-            <TextInput
-              placeholder="email"
-              style={{color: 'white'}}
-              placeholderTextColor={'white'}
-              value={value.email}
-              onChangeText={pre => setValue(txt => ({...txt, email: pre}))}
-            />
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View>
+                {/* text */}
+                <Text
+                  style={{
+                    color: colors.secondary,
+                    position: 'relative',
+                    //   backgroundColor: 'red',
+                  }}>
+                  Password
+                </Text>
+                {/* password */}
+                <TextInput
+                  placeholder="Password"
+                  placeholderTextColor={'white'}
+                  style={styles.text_Input}
+                  value={value.password}
+                  secureTextEntry={showEye ? false : true}
+                  onChangeText={pre =>
+                    setValue(txt => ({...txt, password: pre}))
+                  }
+                />
+              </View>
+              {/* image */}
+              <TouchableOpacity onPress={onToggleEye}>
+                <Image
+                  tintColor={'white'}
+                  source={showEye ? images.showEye : images.hideEye}
+                  resizeMode="contain"
+                  style={{
+                    height: responsiveHeight(2.5),
+                    width: responsiveHeight(2.5),
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
+
           <View style={styles.txt_input}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View>
+                {/* text */}
+                <Text
+                  style={{
+                    color: colors.secondary,
+                    position: 'relative',
+                    //   backgroundColor: 'red',
+                  }}>
+                  Confirm password
+                </Text>
+                {/* password */}
+                <TextInput
+                  placeholder="Confirm password"
+                  placeholderTextColor={'white'}
+                  style={styles.text_Input}
+                  value={value.confirmpassword}
+                  secureTextEntry={confirmShowEye ? false : true}
+                  onChangeText={pre =>
+                    setValue(txt => ({...txt, confirmpassword: pre}))
+                  }
+                />
+              </View>
+              {/* image */}
+              <TouchableOpacity onPress={onToggleConfirmEye}>
+                <Image
+                  tintColor={'white'}
+                  source={confirmShowEye ? images.showEye : images.hideEye}
+                  resizeMode="contain"
+                  style={{
+                    height: responsiveHeight(2.5),
+                    width: responsiveHeight(2.5),
+                  }}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          {/* <View style={styles.txt_input}>
             <Text
               style={{
                 color: colors.secondary,
                 position: 'relative',
-                backgroundColor: 'red',
+                // backgroundColor: 'red',
               }}>
-              Password
+              Confirm password
             </Text>
             <TextInput
               placeholder="Password"
               placeholderTextColor={'white'}
               style={{
+                fontSize:responsiveHeight(5),
                 color: 'white',
                 // backgroundColor: 'black',
                 height: responsiveHeight(3),
@@ -158,9 +260,9 @@ const Signup = () => {
               secureTextEntry
               onChangeText={pre => setValue(txt => ({...txt, password: pre}))}
             />
-          </View>
+          </View> */}
         </View>
-        <SubmitButton title={'Sign Up'} />
+        <SubmitButton navigate={'signin'} title={'Sign Up'} />
         <View
           style={{
             width: responsiveWidth(73),
@@ -169,7 +271,7 @@ const Signup = () => {
           }}>
           <Text style={{color: 'white'}}>
             Already have an account?{' '}
-            <Text style={{fontWeight: 'bold', color: colors.secondary}}>
+            <Text onPress={()=>navigation.navigate('signin')} style={{fontWeight: 'bold', color: colors.secondary}}>
               Sign in
             </Text>
           </Text>
@@ -185,6 +287,13 @@ const Signup = () => {
 export default Signup;
 
 const styles = StyleSheet.create({
+  text_Input: {
+    color: 'white',
+    paddingVertical: responsiveHeight(0.4),
+    height: responsiveHeight(4),
+    width: responsiveWidth(60),
+    right: responsiveWidth(1),
+  },
   txt_intro: {
     color: colors.secondary,
     fontFamily: 'Taviraj-Regular',

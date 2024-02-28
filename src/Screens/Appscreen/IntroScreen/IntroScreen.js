@@ -1,6 +1,6 @@
 import AppIntroSlider from 'react-native-app-intro-slider';
 
-import {ScrollView, View, Text, StyleSheet, Image} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import {useState} from 'react';
 import {images} from '../../../utlies';
 import {
@@ -10,6 +10,7 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {SubmitButton} from '../../../components/Buttons/SubmitButton';
+
 
 const slides = [
   {
@@ -37,10 +38,14 @@ const slides = [
 const IntroScreen = () => {
   const [showRealApp, setShowRealApp] = useState(false);
 
+  onDone = () => {
+    setShowRealApp(true);
+  };
+
   renderItem = ({item}) => {
     console.log(item.key, 'key');
     return (
-      <View style={styles.container}>
+      <ImageBackground source={images.birthdayHeader} style={styles.container}>
         <Image style={styles.backgroundImages} source={images.top} />
         <Image style={styles.image} source={item.image} />
         <Text style={styles.title}>{item.title}</Text>
@@ -50,14 +55,15 @@ const IntroScreen = () => {
           <SubmitButton title={"Let's Get Started"} />
         ) : (
           <>
+
             <SubmitButton title={'Signin'} />
-            <SubmitButton title={'Signup'} key={item.key} />
+            <SubmitButton title={'Signup'} key={item.key}  />
             {/* <SubmitButton title={'Signup'} buttonStyles={{backgroundColor:"white"}} /> */}
           </>
         )}
 
         <Image style={styles.backgroundImages} source={images.bottom} />
-      </View>
+      </ImageBackground>
     );
   };
 
@@ -69,12 +75,10 @@ const IntroScreen = () => {
     width: responsiveWidth(5),
   };
 
-  onDone = () => {
-    setShowRealApp(true);
-  };
+
   return (
     <AppIntroSlider
-      showNextButton={false}
+      // showNextButton={false}
       dotStyle={dotStyle}
       activeDotStyle={activeDotStyle}
       renderItem={renderItem}

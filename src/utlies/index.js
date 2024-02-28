@@ -11,9 +11,17 @@ export const images = {
     facebook : require("../Assets/facebook.png"),
     linkedin : require("../Assets/linkedin.png"),
     party : require("../Assets/party.png"),
-    // hideEye : require("../Assets/hideEye.png"),
-    // showEye : require("../Assets/showEye.png")
-
+    hideEye : require("../Assets/hideEye.png"),
+    showEye : require("../Assets/showEye.png"),
+    winIcon: require("../Assets/winIcon.png"),
+    winPerson: require("../Assets/winPerson.png"),
+    profile: require("../Assets/profile.png"),
+    star: require("../Assets/star.png"),
+    heart: require("../Assets/heart.png"),
+    clock: require("../Assets/clock.png"),
+    trophy: require("../Assets/trophy.png"),
+    familyIcon:require("../Assets/familyQuizdp.png"),
+    streak:require("../Assets/streak.png"),
 
 
 }
