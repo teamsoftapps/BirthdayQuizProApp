@@ -8,6 +8,8 @@ import {
   Image,
   StatusBar,
   ImageBackground,
+  Share,
+  TouchableWithoutFeedback
 } from 'react-native';
 //   import React, {useContext, useEffect} from 'react';
 import {useState} from 'react';
@@ -39,6 +41,7 @@ const Profile = () => {
   const [imageUri, setImageUri] = useState(null);
   const [name, setName] = useState('Mark timber');
   const [editName, setEditName] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   // const authCtx = useContext(AuthContext);
 
   //    useEffect(() => {
@@ -84,43 +87,83 @@ const Profile = () => {
     setName(name);
   };
 
-  // const openImagePicker = () => {
-  //   const options = {
-  //     mediaType: 'photo',
-  //     includeBase64: false,
-  //     maxHeight: 2000,
-  //     maxWidth: 2000,
-  //   };
+  const onToggleModal = () => {
+    setShowModal(!showModal);
+  };
 
-  //   launchImageLibrary  (options, response => {
-  //     if (response.didCancel) {
-  //       console.log('User cancelled image picker');
-  //     } else if (response.error) {
-  //       console.log('Image picker error: ', response.error);
-  //     } else {
-  //       let imageUri = response.uri || response.assets?.[0]?.uri;
-  //       setImageUri(imageUri);
-  //       console.log(imageUri, "imageUri")
-  //       updatePhote(imageUri);
-  //       saveImageUri(imageUri)
-  //     }
-  //   });
-  // };
+  const openImagePicker = () => {
+    const options = {
+      mediaType: 'photo',
+      includeBase64: false,
+      maxHeight: 2000,
+      maxWidth: 2000,
+    };
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('Image picker error: ', response.error);
+      } else {
+        let imageUri = response.uri || response.assets?.[0]?.uri;
+        setImageUri(imageUri);
+        console.log(imageUri, 'imageUri');
+        updatePhote(imageUri);
+        saveImageUri(imageUri);
+      }
+    });
+  };
   const handleLogout = () => {
     authCtx.logout();
   };
+  const hideModal = () => {
+    setShowModal(false);
+  };
+  
   return (
-    <ImageBackground
+    <ImageBackground 
+    
       style={{flex: 1, backgroundColor: colors.primary}}
       source={images.birthdayBg}>
       {/* <SafeAreaView
         edges={['bottom']}
         style={{flex: 1, backgroundColor: '#F6F5F0'}}> */}
-      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} />
-      <View
+      {/* <View
         style={{
           paddingTop: responsiveHeight(2),
-        }}></View>
+        }}></View> */}
+         <View onTouchEnd={hideModal}>
+            
+           
+      <View 
+        style={{
+          flexDirection: 'row',
+          paddingTop: responsiveHeight(2),
+          paddingHorizontal: responsiveHeight(1),
+          justifyContent: 'space-between',
+        }}>
+
+          
+        <TouchableWithoutFeedback>
+          <Image style={{ width: responsiveHeight(4),
+    height: responsiveHeight(2.5),}} source={images.backArrow}></Image>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback style={{ width: responsiveHeight(2.5),
+    height: responsiveHeight(5)}} onPress={onToggleModal}>
+          <Image style={styles.icon_2} source={images.dots}></Image>
+        </TouchableWithoutFeedback>
+      </View>
+      {showModal && (
+        <View style={styles.modal}>
+          <View>
+            <Text style={styles.modalText}>Delete</Text>
+          </View>
+          <View>
+            <Text style={styles.modalText}>Edit</Text>
+          </View>
+        </View>
+      )}
+
       <View>
         <View style={{marginTop: responsiveHeight(4)}}>
           <Image
@@ -134,8 +177,11 @@ const Profile = () => {
               alignSelf: 'center',
             }}
           />
-          {/* </View> */}
-
+          <TouchableOpacity onPress={() => {}} style={styles.iconEdit}>
+            <Image
+              style={styles.icon_2}
+              source={images.editProfileIcon}></Image>
+          </TouchableOpacity>
           <Text style={styles.name}>{name ? name : 'Mark timber'}</Text>
           <Text style={styles.welcome}>24 Years</Text>
           {/* <Text style={styles.name}>{"Muhammad Ibrahim KHAN"}</Text> */}
@@ -176,13 +222,6 @@ const Profile = () => {
         }}>
         {/* <TouchableOpacity onPress={openImagePicker}> */}
         <TouchableOpacity onPress={() => {}}>
-          {/* <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 2, y: 0}}
-      colors={['#fff', '#fff']}
-      style={styles.linearGradient}>
-      <Text style={[styles.btnText]}>Upload Image</Text>
-    </LinearGradient> */} 
         </TouchableOpacity>
         <TouchableOpacity>
           {/* <LinearGradient
@@ -196,25 +235,78 @@ const Profile = () => {
     </LinearGradient> */}
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={handleLogout}>
-        <InfoCard CardStyles={CardStyles}>
+      {/* <TouchableOpacity onPress={handleLogout}> */}
+      <InfoCard CardStyles={CardStyles}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: responsiveHeight(1),
+          }}>
+          <Image style={styles.icon} source={images.cake} />
           <Text style={styles.cardText}>Birthday</Text>
-          <Text style={styles.cardText}>26 July, 1996</Text>
-        </InfoCard>
-        <InfoCard CardStyles={{...CardStyles,backgroundColor:colors.secondary,}}>
-          <Text style={styles.cardText}>Birthday</Text>
-          <Text style={styles.cardText}>26 July, 1996</Text>
-        </InfoCard>
-      </TouchableOpacity>
+        </View>
+        <Text style={styles.cardText}>26 July, 1996</Text>
+      </InfoCard>
+      <InfoCard CardStyles={{...CardStyles, backgroundColor: colors.secondary}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: responsiveHeight(1),
+          }}>
+          <Image style={styles.icon} source={images.partymin} />
+          <Text style={styles.cardText}>Send Wishes</Text>
+        </View>
+
+        <Image style={styles.icon} source={images.share} />
+      </InfoCard>
+      {/* </TouchableOpacity> */}
       {/* </SafeAreaView> */}
+      </View>
     </ImageBackground>
   );
 };
 
+
+// developed profile UI screen scratch  and logics to display edit and delete profile modal
+// Implemented logics to add custom font in the application (Poppins)
+
 export default Profile;
 
 const styles = StyleSheet.create({
+  modalText: {
+    fontSize: responsiveFontSize(2),
+    color: 'black',
+  },
+
+  modal: {
+    padding: responsiveHeight(1),
+    position: 'absolute',
+    backgroundColor: 'white',
+    height: responsiveHeight(7),
+    width: responsiveWidth(22),
+    right: responsiveHeight(5),
+    top: responsiveHeight(2),
+    justifyContent: 'center',
+    gap: responsiveHeight(0.7),
+    // alignItems:"center"
+  },
+  iconEdit: {
+    position: 'absolute',
+    top: responsiveHeight(17),
+    left: responsiveHeight(29),
+  },
+  icon_2: {
+    width: responsiveHeight(4),
+    height: responsiveHeight(4),
+  },
+  icon: {
+    width: responsiveHeight(2.5),
+    height: responsiveHeight(2.5),
+  },
   cardText: {
+    fontFamily: 'Poppins-BoldItalic',
     color: 'black',
     fontWeight: '500',
     fontSize: responsiveFontSize(2),
@@ -229,6 +321,7 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(2.8),
     fontFamily: 'Taviraj-Bold',
     color: '#000',
+    // backgroundColor:"red"
   },
   back: {
     height: responsiveHeight(4),

@@ -27,6 +27,12 @@ export const images = {
     partymin:require("../Assets/partymin.png"), 
     avatar:require("../Assets/avatar.png"), 
     editProfileIcon:require("../Assets/editProfileIcon.png"), 
+    backArrow:require("../Assets/backArrow.png"),
+    share:require("../Assets/share.png"),
+    dots:require("../Assets/dots.png"),
+
+
+
     
 
 }

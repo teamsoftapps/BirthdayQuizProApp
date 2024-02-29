@@ -11,6 +11,7 @@ export const InfoCard = ({children, CardStyles}) => {
 };
 const styles = StyleSheet.create({
   btnText: {
+
     color: 'black',
     fontSize: responsiveFontSize(2),
     textAlign: 'center',
