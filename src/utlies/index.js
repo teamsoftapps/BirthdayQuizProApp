@@ -21,8 +21,13 @@ export const images = {
     clock: require("../Assets/clock.png"),
     trophy: require("../Assets/trophy.png"),
     familyIcon:require("../Assets/familyQuizdp.png"),
-    streak:require("../Assets/streak.png"),
-
+    streak:require("../Assets/streak.png"), 
+    avatar:require("../Assets/avatar.png"), 
+    cake:require("../Assets/cake.png"), 
+    partymin:require("../Assets/partymin.png"), 
+    avatar:require("../Assets/avatar.png"), 
+    editProfileIcon:require("../Assets/editProfileIcon.png"), 
+    
 
 }
 

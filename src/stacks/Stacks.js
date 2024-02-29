@@ -15,7 +15,8 @@ import IntroScreen from '../Screens/Appscreen/IntroScreen/IntroScreen';
 import Streaks from '../Screens/Appscreen/IntroScreen/Streaks';
 import DailyQuiz from '../Screens/Appscreen/IntroScreen/DailyQuiz';
 import FamilyQuiz from '../Screens/Appscreen/IntroScreen/FamilyQuiz';
-
+import Profile from '../Screens/Appscreen/IntroScreen/Profile';
+import Loading from '../components/Loading/Loading';
 
 // Auth
 import Signin from '../Screens/Auth/Signin';
@@ -34,13 +35,14 @@ const Drawer = createDrawerNavigator();
 const tab = createBottomTabNavigator();
 const AppStack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator({
-  initialRouteName: 'signup',
+  // initialRouteName: 'signup',
   screenOptions: {
     headerShown: false,
   },
   screens: {
-    // streaks: Streaks,
-    streakss: Results,
+    
+    streaks: Profile,
+    // streakss: Results,
     signup: Signup,
     signin: Signin,
   },

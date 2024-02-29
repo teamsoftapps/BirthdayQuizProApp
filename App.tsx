@@ -10,10 +10,9 @@ import React from 'react';
 
 //  Navigation S  ettings
 
-// dEVELOPED qUIZ RESULTS SCREEN FROM SCRATCH
-// Implemented Navigation Logics
-// Developed Auth stack
-// Developed App Navigators layout
+// Developed Profile screen from scratch
+// Developed Manage birthdays page UI from scratch
+// developed navigation basic layout
 
 const App = () => {
   return (
