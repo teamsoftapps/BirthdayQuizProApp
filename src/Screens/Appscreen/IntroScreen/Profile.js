@@ -132,7 +132,7 @@ const Profile = () => {
         style={{
           paddingTop: responsiveHeight(2),
         }}></View> */}
-         <View onTouchEnd={hideModal}>
+    
             
            
       <View 
@@ -163,6 +163,8 @@ const Profile = () => {
           </View>
         </View>
       )}
+
+<View onTouchEnd={hideModal}>
 
       <View>
         <View style={{marginTop: responsiveHeight(4)}}>
@@ -248,6 +250,9 @@ const Profile = () => {
         </View>
         <Text style={styles.cardText}>26 July, 1996</Text>
       </InfoCard>
+      <TouchableOpacity>
+
+    
       <InfoCard CardStyles={{...CardStyles, backgroundColor: colors.secondary}}>
         <View
           style={{
@@ -261,6 +266,7 @@ const Profile = () => {
 
         <Image style={styles.icon} source={images.share} />
       </InfoCard>
+      </TouchableOpacity>
       {/* </TouchableOpacity> */}
       {/* </SafeAreaView> */}
       </View>
@@ -269,8 +275,10 @@ const Profile = () => {
 };
 
 
-// developed profile UI screen scratch  and logics to display edit and delete profile modal
+// developed profile UI screen scratch 
+//  logics to display edit/delete profile modal and hide it when we click outside of the modal in profile screen 
 // Implemented logics to add custom font in the application (Poppins)
+
 
 export default Profile;
 
@@ -286,7 +294,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: responsiveHeight(7),
     width: responsiveWidth(22),
-    right: responsiveHeight(5),
+    right: responsiveHeight(2),
     top: responsiveHeight(2),
     justifyContent: 'center',
     gap: responsiveHeight(0.7),
