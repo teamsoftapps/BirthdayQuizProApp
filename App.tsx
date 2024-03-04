@@ -17,8 +17,8 @@ import React from 'react';
 const App = () => {
   return (
     <View style={{flex: 1}}>
-      {/* <DailyQuiz /> */}
-      <Results />
+      <DailyQuiz />
+      {/* <Results /> */}
       {/* <Signin></Signin> */}
       {/* <Win></Win> */}
       {/* <Signup></Signup> */}

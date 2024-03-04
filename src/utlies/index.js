@@ -30,6 +30,10 @@ export const images = {
     backArrow:require("../Assets/backArrow.png"),
     share:require("../Assets/share.png"),
     dots:require("../Assets/dots.png"),
+    grayCoin:require("../Assets/grayCoin.png"),
+    goldCoin:require("../Assets/goldCoin.png"),
+    menIcon:require("../Assets/menIcon.png"),
+
 
 
 

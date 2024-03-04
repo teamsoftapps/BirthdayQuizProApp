@@ -17,6 +17,7 @@ import DailyQuiz from '../Screens/Appscreen/IntroScreen/DailyQuiz';
 import FamilyQuiz from '../Screens/Appscreen/IntroScreen/FamilyQuiz';
 import Profile from '../Screens/Appscreen/IntroScreen/Profile';
 import Loading from '../components/Loading/Loading';
+import Rewards from '../Screens/Appscreen/IntroScreen/Rewards';
 
 // Auth
 import Signin from '../Screens/Auth/Signin';
@@ -41,9 +42,9 @@ const RootStack = createNativeStackNavigator({
   },
   screens: {
     
-    streaks: Profile,
+    streaks:Rewards ,
     signup: Signup,
-    signin: Signin,
+    signin: Signin,  
   },
 });
 
@@ -63,7 +64,6 @@ const AppNavigators = () => {
 };
 
 const Auth = createStaticNavigation(RootStack);
-
 const AppMain = () => {
   return (
     <AppStack.Navigator>
