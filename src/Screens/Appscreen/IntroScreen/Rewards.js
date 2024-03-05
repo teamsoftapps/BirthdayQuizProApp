@@ -7,10 +7,11 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  ScrollView,
+  FlatList,
 } from 'react-native';
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import {InfoCard} from '../../../components/Cards/InfoCard';
+// import Sound from 'react-native-sound';
 
 import {
   responsiveFontSize,
@@ -21,34 +22,120 @@ import {
 import {colors, images} from '../../../utlies';
 import {useNavigation} from '@react-navigation/native';
 
+import {
+ 
+  GestureHandlerRootView,
+  ScrollView,
+} from 'react-native-gesture-handler';
 
 const Dummy_data = [
-    {id:1, heading:"Quiz Master", description:"Earned for correctly{'\n'}answering the questions"},
-    {id:2, heading:"Daily Challenger", description:"Earned for correctly{'\n'}answering the questions"},
-    {id:3, heading:"Streak keeper", description:"Earned for correctly{'\n'}answering the questions"}
-]
+  {
+    id: 1,
+    heading: 'Quiz Master',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 2,
+    heading: 'Daily Challenger',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 3,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 4,
+    heading: 'Quiz Master',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 5,
+    heading: 'Daily Challenger',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 6,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+];
 const Rewards = () => {
+    const [ringtonePlayed, setRingtonePlayed] = useState(false);
   const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
+
+//   const ringtone = new Sound(require('../../../Assets/Audios/A.mp3'), Sound.MAIN_BUNDLE, error => {
+//     if (error) {
+//       console.log('Failed to load the sound', error);
+//       return;
+//     }
+//   });
+
+
+
+//   useEffect(() => {
+//     // Play the ringtone when the component mounts
+//     if (!ringtonePlayed) {
+//       ringtone.play(success => {
+//         if (success) {
+//           console.log('Successfully played the ringtone');
+//         } else {
+//           console.log('Failed to play the ringtone');
+//         }
+//       });
+ 
+//       return () => {
+//         ringtone.stop();
+//       };
+      
+//       setRingtonePlayed(true);
+//     }
+//   }, [ringtonePlayed])
 
   const btn = useCallback(n => {
     setSelected(n);
   }, []);
 
-  return (
-    <ImageBackground
-      source={images.birthdayBGH}
-      style={{
-        flex: 1,
-        backgroundColor: colors.primary,
-      }}>
-      <StatusBar
-        translucent={true}
-        barStyle={'dark-content'}
-        backgroundColor={'transparent'}
-      />
+  const renderItem = ({item}) => {
+    return (
+      <View style={styles.userContainer}>
+        <View style={styles.userImageContainer}>
+          <Image
+            style={{
+              width: responsiveWidth(16),
+              height: responsiveWidth(16),
+            }}
+            source={images.menIcon}
+          />
+        </View>
+        <View style={styles.userInfo}>
+          {/* <Text style={styles.h1}>Quiz Master</Text> */}
+          <Text style={styles.h1}>{item.heading}</Text>
+          <Text style={styles.p1}>{item.description}</Text>
+        </View>
+        <TouchableOpacity style={styles.claimBtn}>
+          <Text style={styles.btnText}>Claim</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
 
-      <ScrollView>
+  return (
+    <GestureHandlerRootView style={{flex: 1}}>
+      <ImageBackground
+        source={images.birthdayBGH}
+        style={{
+          flex: 1,
+          backgroundColor: colors.primary,
+        }}>
+        <StatusBar
+          translucent={true}
+          barStyle={'dark-content'}
+          backgroundColor={'transparent'}
+        />
+
+        {/* <ScrollView> */}
         <View
           style={{marginTop: responsiveHeight(10), gap: responsiveHeight(2)}}>
           <View>
@@ -102,39 +189,27 @@ const Rewards = () => {
               </View>
             </InfoCard>
           </View>
-
-          <View style={styles.userContainer}>
-            <View style={styles.userImageContainer}>
-              <Image
-                style={{
-                  width: responsiveWidth(16),
-                  height: responsiveWidth(16),
-                }}
-                source={images.menIcon}
-              />
-            </View>
-            <View style={styles.userInfo}>
-              <Text style={styles.h1}>Quiz Master</Text>
-              <Text style={styles.p1}>
-                Earned for correctly{'\n'}answering the questions
-              </Text>
-            </View>
-            <TouchableOpacity style={styles.claimBtn}>
-              <Text style={styles.btnText}>Claim</Text>
-            </TouchableOpacity>
-          </View>
+          {/* <View> */}
+            <FlatList style={{ height:responsiveHeight(50)}}
+              scrollEnabled
+              renderItem={renderItem}
+              data={Dummy_data}
+              keyExtractor={item => item.id}
+            />
+          {/* </View> */}
         </View>
         <View style={{height: responsiveHeight(9)}}></View>
-      </ScrollView>
-      {/* </GestureHandlerRootView> */}
-    </ImageBackground>
+        {/* </ScrollView> */}
+        {/* </GestureHandlerRootView> */}
+      </ImageBackground>
+    </GestureHandlerRootView>
   );
 };
 
 export default Rewards;
 
 const styles = StyleSheet.create({
-    userInfo:{gap:responsiveHeight(.7)},
+  userInfo: {gap: responsiveHeight(0.7)},
   h1: {
     color: colors.secondary,
     fontSize: responsiveScreenFontSize(2),
@@ -167,10 +242,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     width: responsiveWidth(20),
     borderRadius: responsiveHeight(2),
-    justifyContent:"flex-end",
-    alignItems:"center"
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   userContainer: {
+    marginBottom: responsiveHeight(2),
     // justifyContent:"center",
     gap: responsiveHeight(0.5),
     // backgroundColor: 'red',

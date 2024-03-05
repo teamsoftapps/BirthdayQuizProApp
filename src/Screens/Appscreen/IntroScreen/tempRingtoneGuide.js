@@ -8,34 +8,31 @@ import { colors, images } from '../../../utlies';
 const Win = () => {
   const [ringtonePlayed, setRingtonePlayed] = useState(false);
 
+  const ringtone = new Sound(require('../../../Assets/Audios/A.mp3'), Sound.MAIN_BUNDLE, error => {
+    if (error) {
+      console.log('Failed to load the sound', error);
+      return;
+    }
+  });
+
   useEffect(() => {
     // Play the ringtone when the component mounts
     if (!ringtonePlayed) {
-      const ringtone = new Sound('ringtone.mp3', Sound.MAIN_BUNDLE, error => {
-        if (error) {
-          console.log('Failed to load the sound', error);
-          return;
+      ringtone.play(success => {
+        if (success) {
+          console.log('Successfully played the ringtone');
+        } else {
+          console.log('Failed to play the ringtone');
         }
-        // Play the ringtone
-        ringtone.play(success => {
-          if (success) {
-            console.log('Successfully played the ringtone');
-          } else {
-            console.log('Failed to play the ringtone');
-          }
-        });
       });
 
-      // Stop the ringtone when component unmounts
       return () => {
         ringtone.stop();
       };
       
-      // Update state to indicate that the ringtone has been played
       setRingtonePlayed(true);
     }
-  }, [ringtonePlayed]);
-
+  }, [ringtonePlayed])
   return (
     <ImageBackground
       source={images.birthdayBGH}

@@ -41,42 +41,61 @@ const RootStack = createNativeStackNavigator({
     headerShown: false,
   },
   screens: {
-    
-    streaks:Rewards ,
+    streaks: Rewards,
     signup: Signup,
-    signin: Signin,  
+    signin: Signin,
   },
 });
 
 const AppNavigators = () => {
-  <Drawer.Navigator
-      // initialRouteName="Home"
-    screenOptions={{
-      headerShown: false,
-      unmountOnBlur: true,
-    }}
-    //   drawerContent={props => <CoustomDrawer {...props} />
-    //   }
-  >
-    {/* <Drawer.Screen name="Tab" component={MyTabs} /> */}
-    <Drawer.Screen name="Results" component={Results} />
-  </Drawer.Navigator>;
+  return (
+    <Drawer.Navigator
+      initialRouteName="Results"
+      screenOptions={{
+        headerShown: false,
+        // unmountOnBlur: true,
+      }}
+      >
+      <Drawer.Screen name="Results" component={Results} />
+    </Drawer.Navigator>
+  );
 };
 
 const Auth = createStaticNavigation(RootStack);
 const AppMain = () => {
   return (
-    <AppStack.Navigator>
-      <AppStack.Screen
+    <AppStack.Navigator
+      screenOptions={{
+        // headerShown: false,
+      }}>
+
+        <AppStack.Screen name={"ALI"} component={Signin}></AppStack.Screen>
+      {/* <AppStack.Screen
         name="AppNavigators"
-        component={AppNavigators}></AppStack.Screen>
+        component={AppNavigators}></AppStack.Screen> */}
     </AppStack.Navigator>
   );
 };
 
 const Stacks = () => {
   const [dummyAuthenticated, setDummyAuthenticated] = useState(true);
-  return dummyAuthenticated ? <Auth /> : <AppMain />;
+  return dummyAuthenticated ? (
+    <Auth />
+  ) : (
+    <NavigationContainer>
+   <Drawer.Navigator
+      initialRouteName="Results"
+      screenOptions={{
+        headerShown: false,
+        
+        // unmountOnBlur: true,
+      }}
+      >
+      <Drawer.Screen name="Results" component={Results} />
+    </Drawer.Navigator>
+      {/* <AppMain /> */}
+    </NavigationContainer>
+  );
   // <NavigationContainer>
 
   //  {/* </NavigationContainer> */}
