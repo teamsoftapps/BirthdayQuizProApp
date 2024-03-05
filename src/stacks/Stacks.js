@@ -71,9 +71,7 @@ const AppMain = () => {
       }}>
 
         <AppStack.Screen name={"ALI"} component={Signin}></AppStack.Screen>
-      {/* <AppStack.Screen
-        name="AppNavigators"
-        component={AppNavigators}></AppStack.Screen> */}
+    
     </AppStack.Navigator>
   );
 };
@@ -94,7 +92,6 @@ const Stacks = () => {
       >
       <Drawer.Screen name="Results" component={Results} />
     </Drawer.Navigator>
-      {/* <AppMain /> */}
     </NavigationContainer>
   );
   // <NavigationContainer>

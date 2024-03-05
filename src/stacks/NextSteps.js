@@ -19,7 +19,6 @@
 // LAMA DEV PROJECT
 // STATIC SITE GENERATION
 
-
 // how to generate apk
 // how to upload to google playstore
 // how to upload to applestore
