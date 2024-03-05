@@ -13,7 +13,7 @@ import {
 import {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 //   import { images } from '../../Utils/constants/Themes';
-import {images, colors} from '../../../utlies';
+import {images, colors} from '../../utlies';
 //   import LinearGradient from 'react-native-linear-gradient';
 //   import {launchImageLibrary} from 'react-native-image-picker';
 //   import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -23,7 +23,7 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {TextInput} from 'react-native-gesture-handler';
-import {InfoCard} from '../../../components/Cards/InfoCard';
+import {InfoCard} from '../../components/Cards/InfoCard';
 // import { SubmitButton } from '../../../components/Buttons/SubmitButton';
 //   import { updateUsersName } from '../../Utils/Api';
 //   import { updatePhote } from '../../Utils/Api';

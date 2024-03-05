@@ -7,13 +7,13 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import {SubmitButton} from '../../../components/Buttons/SubmitButton';
+import {SubmitButton} from '../../components/Buttons/SubmitButton';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {colors, images} from '../../../utlies';
+import {colors, images} from '../../utlies';
 const Streaks = () => {
   return (
     <ImageBackground

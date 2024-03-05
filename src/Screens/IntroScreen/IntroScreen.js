@@ -10,14 +10,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useState} from 'react';
-import {images} from '../../../utlies';
+import {images} from '../../utlies';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveScreenWidth,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {SubmitButton} from '../../../components/Buttons/SubmitButton';
+import {SubmitButton} from '../../components/Buttons/SubmitButton';
 
 const slides = [
   {

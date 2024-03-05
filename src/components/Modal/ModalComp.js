@@ -13,7 +13,7 @@ const ModalComp = ({
       isVisible={isVisible}
       onBackdropPress={onBackdropPress}
       style={{style}}>
-      {children}
+      <View>{children}</View>
     </Modal>
   );
 };

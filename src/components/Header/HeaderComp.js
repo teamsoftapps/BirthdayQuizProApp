@@ -7,26 +7,32 @@ import {
 } from 'react-native-responsive-dimensions';
 import {images} from '../../utlies';
 
-const HeaderComp = ({heading, navigation, OptionOnpress = () => {}}) => {
+const HeaderComp = ({
+  heading,
+  navigation,
+  OptionOnpress = () => {},
+  leftImage,
+  leftImageStyle = {},
+  RightImage,
+  RightImageStyle = {},
+  headerStyle = {},
+}) => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: responsiveWidth(5),
-        alignItems: 'center',
-      }}>
+    <View style={[styles.headerStyle, headerStyle]}>
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
         }}>
-        <Image source={images.back} style={styles.back} />
+        <Image
+          source={leftImage ? leftImage : images.back}
+          style={[styles.back, leftImageStyle]}
+        />
       </TouchableOpacity>
       {heading && <Text style={styles.heading}>{heading}</Text>}
       <TouchableOpacity onPress={OptionOnpress}>
         <Image
-          source={images.more}
-          style={[styles.back, {height: responsiveHeight(3)}]}
+          source={RightImage ? RightImage : images.more}
+          style={[styles.back, {height: responsiveHeight(3)}, RightImageStyle]}
         />
       </TouchableOpacity>
     </View>
@@ -47,5 +53,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: responsiveFontSize(2.3),
     fontWeight: 'bold',
+  },
+  headerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: responsiveWidth(5),
+    alignItems: 'center',
   },
 });

@@ -9,16 +9,16 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {colors, images} from '../../../utlies';
+import {colors, images} from '../../utlies';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {Data} from '../../../json/ManageBirthday';
-import {InfoCard} from '../../../components/Cards/InfoCard';
-import ButtonComp from '../../../components/Buttons/ButtonComp';
-import HeaderComp from '../../../components/Header/HeaderComp';
+import {Data} from '../../json/ManageBirthday';
+import {InfoCard} from '../../components/Cards/InfoCard';
+import ButtonComp from '../../components/Buttons/ButtonComp';
+import HeaderComp from '../../components/Header/HeaderComp';
 
 const ManageBirthday = () => {
   const heading = () => {

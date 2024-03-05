@@ -18,9 +18,9 @@ import React, {
   useRef,
   useLayoutEffect,
 } from 'react';
-import {SubmitButton} from '../../../components/Buttons/SubmitButton';
+import {SubmitButton} from '../../components/Buttons/SubmitButton';
 //   import {SafeAreaView} from 'react-native-safe-area-context';
-import {colors, images} from '../../../utlies';
+import {colors, images} from '../../utlies';
 
 import {
   responsiveFontSize,

@@ -10,16 +10,17 @@ import {
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Home from '../Screens/Appscreen/IntroScreen/Home';
+import Home from '../Screens/IntroScreen/Home';
 import Notifications from '../Screens/Appscreen/Notifications';
 import {images} from '../utlies';
 
 import {
+  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
-import ManageBirthday from '../Screens/Appscreen/IntroScreen/ManageBirthday';
+import ManageBirthday from '../Screens/IntroScreen/ManageBirthday';
 
 const Bottomtabs = () => {
   const _renderIcon = (routeName, selectedTab) => {
@@ -38,29 +39,25 @@ const Bottomtabs = () => {
     }
 
     return (
-      <View style={{alignItems: 'center'}}>
+      <View style={{paddingTop: responsiveHeight(0.8)}}>
         <Image
           source={icon}
           style={{
-            height: responsiveWidth(10),
-            width: responsiveWidth(10),
+            height: responsiveWidth(7),
+            width: responsiveWidth(7),
             tintColor: routeName === selectedTab ? '#98FF98' : '#d7d7d7',
+            alignSelf: 'center',
           }}
         />
         <Text
           style={{
             color: routeName === selectedTab ? '#98FF98' : '#d7d7d7',
             marginTop: responsiveHeight(1),
+            fontSize: responsiveFontSize(1.5),
           }}>
           {Name}
         </Text>
       </View>
-
-      //   <Ionicons
-      //     name={icon}
-      //     size={25}
-      //     color={routeName === selectedTab ? 'black' : 'gray'}
-      //   />
     );
   };
   const renderTabBar = ({routeName, selectedTab, navigate}) => {
@@ -81,23 +78,26 @@ const Bottomtabs = () => {
   return (
     <NavigationContainer>
       <CurvedBottomBar.Navigator
-        screenOptions={{headerShown: false}}
+        screenOptions={{
+          headerShown: false,
+        }}
         style={styles.bottomBar}
-        strokeWidth={0.5}
-        height={100}
-        circleWidth={60}
+        circleWidth={responsiveWidth(100)}
         bgColor="#000"
         initialRouteName="Home"
         borderTopLeftRight
-        swipeEnabled
-        type="DOWN"
         renderCircle={({selectedTab, navigate}) => (
           <View style={{alignItems: 'center'}}>
             <TouchableOpacity
               style={styles.btnCircle}
               onPress={() => Alert.alert('Click Action')}></TouchableOpacity>
-            <Text style={{bottom: responsiveHeight(3), color: '#98FF98'}}>
-              Hellotr
+            <Text
+              style={{
+                color: '#98FF98',
+                bottom: responsiveHeight(2),
+                fontSize: responsiveFontSize(1.5),
+              }}>
+              Hello
             </Text>
           </View>
         )}
@@ -127,16 +127,17 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 5,
   },
-  bottomBar: {},
+  bottomBar: {
+    borderTopLeftRadius: 200,
+  },
   btnCircle: {
-    width: responsiveWidth(22),
-    height: responsiveWidth(22),
-    borderRadius: responsiveWidth(25),
+    width: responsiveWidth(16),
+    height: responsiveWidth(16),
+    borderRadius: responsiveWidth(16),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#98FF98',
-
-    bottom: responsiveHeight(6),
+    bottom: responsiveHeight(4),
     shadowColor: '#000',
     shadowOffset: {
       width: 1,

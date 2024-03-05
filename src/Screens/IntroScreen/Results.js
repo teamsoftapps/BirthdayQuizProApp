@@ -6,14 +6,14 @@ import {
   Text,
   View,
 } from 'react-native';
-import {SubmitButton} from '../../../components/Buttons/SubmitButton';
+import {SubmitButton} from '../../components/Buttons/SubmitButton';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {colors, images} from '../../../utlies';
-const Win = () => {
+import {colors, images} from '../../utlies';
+const Results = () => {
   return (
     <ImageBackground
       source={images.birthdayBGH}
@@ -29,26 +29,43 @@ const Win = () => {
       {/* <GestureHandlerRootView> */}
       {/* <ScrollView> */}
       {/* {isLoading ? <MsgModal loader={true} /> : null} */}
-      <View style={{marginTop: responsiveHeight(10)}}>
+      <View style={{marginTop: responsiveHeight(7)}}>
         <View>
-          <Text
-            style={[styles.intro_small, {marginBottom: responsiveHeight(30)}]}>
-            YOU WIN !
-          </Text>
-          <Image source={images.winPerson} style={styles.winImage}></Image>
-          <Image source={images.winIcon} style={styles.image}></Image>
-          <Text style={styles.txt_intro}>Congrats</Text>
+          <Text style={styles.intro_small}>QUIZ RESULTS</Text>
+          <Image source={images.trophy} style={styles.winImage}></Image>
+          <Text style={styles.txt_intro}>Congratulations</Text>
           <Text style={styles.txt_intro_2}>
-            You earned <Text style={{color: colors.secondary}}>+250</Text> free
-            coins
+            on completing the quiz!{'\n'}Here is your performance:
           </Text>
+          <Text style={styles.txt_intro_3}>
+            Correct Answers:
+            <Text style={{color: colors.secondary}}> 3 out of 4</Text>
+            {'\n'}
+            Incorrect Answers:<Text style={{color: colors.secondary}}> 1</Text>
+            {'\n'}
+            Hints Used:<Text style={{color: colors.secondary}}> 1</Text>
+            {'\n'}
+            Hearts Remaining:<Text style={{color: colors.secondary}}> 3</Text>
+            {'\n'}
+          </Text>
+          <Text style={styles.txt_intro}>Rewards Earned</Text>
+          <Text style={styles.txt_intro_3}>You Earned</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignSelf: 'center',
+              alignItems: 'center',
+              gap: responsiveHeight(0.5),
+            }}>
+            <Image source={images.star} style={styles.icon} />
+            <Text style={styles.txt_intro}>500</Text>
+          </View>
         </View>
-
         <SubmitButton
           btnStyles={{backgroundColor: 'white'}}
           title={'Share with friends'}
         />
-        <SubmitButton title={'Take new Quiz'} />
+        <SubmitButton title={'Return to Menu'} />
       </View>
 
       {/* </ScrollView> */}
@@ -57,15 +74,19 @@ const Win = () => {
   );
 };
 
-export default Win;
+export default Results;
 
 const styles = StyleSheet.create({
+  icon: {
+    height: responsiveHeight(4),
+    width: responsiveHeight(4),
+  },
   winImage: {
-    height: responsiveHeight(50),
-    width: responsiveHeight(50),
+    height: responsiveHeight(20),
+    width: responsiveHeight(20),
     alignSelf: 'center',
-    position: 'absolute',
-    zIndex: -99,
+    //   position: 'absolute',
+    //   zIndex: -99,
     // marginTop: responsiveHeight(10),
   },
   text_Input: {
@@ -76,14 +97,19 @@ const styles = StyleSheet.create({
     right: responsiveWidth(1),
   },
   txt_intro_2: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(2.5),
+    color: 'white',
+    textAlign: 'center',
+  },
+  txt_intro_3: {
+    fontSize: responsiveFontSize(2.3),
     color: 'white',
     textAlign: 'center',
   },
   txt_intro: {
-    color: 'white',
+    color: colors.secondary,
     fontFamily: 'Poppins-Regular',
-    //   fontWeight: 'bold',
+    fontWeight: 'bold',
     textAlign: 'center',
     fontSize: responsiveFontSize(4),
   },
@@ -120,6 +146,8 @@ const styles = StyleSheet.create({
     height: responsiveHeight(7),
     width: responsiveHeight(7),
     alignSelf: 'center',
-    //   marginTop: responsiveHeight(10),
   },
 });
+
+//  Developed Quiz results screen UI from scratch
+//

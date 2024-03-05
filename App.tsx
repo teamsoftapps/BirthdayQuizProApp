@@ -1,11 +1,11 @@
 import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
 import Loading from './src/components/Loading/Loading';
-import IntroScreen from './src/Screens/Appscreen/IntroScreen/IntroScreen';
+import IntroScreen from './src/Screens/IntroScreen/IntroScreen';
 import Signup from './src/Screens/Auth/Signup';
 import Signin from './src/Screens/Auth/Signin';
-import Win from './src/Screens/Appscreen/IntroScreen/Win';
-import DailyQuiz from './src/Screens/Appscreen/IntroScreen/DailyQuiz';
-import Results from './src/Screens/Appscreen/IntroScreen/Results';
+import Win from './src/Screens/IntroScreen/Win';
+import DailyQuiz from './src/Screens/IntroScreen/DailyQuiz';
+import Results from './src/Screens/IntroScreen/Results';
 import React from 'react';
 
 //  Navigation S  ettings
