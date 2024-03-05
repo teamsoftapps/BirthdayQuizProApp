@@ -17,6 +17,7 @@ import DailyQuiz from '../Screens/IntroScreen/DailyQuiz';
 import FamilyQuiz from '../Screens/IntroScreen/FamilyQuiz';
 import Profile from '../Screens/IntroScreen/Profile';
 import Loading from '../components/Loading/Loading';
+import Rewards from '../Screens/Appscreen/IntroScreen/Rewards';
 
 // Auth
 import Signin from '../Screens/Auth/Signin';
@@ -88,7 +89,7 @@ const Stacks = () => {
       screenOptions={{
         headerShown: false,
         
-        // unmountOnBlur: true,
+    
       }}
       >
       <Drawer.Screen name="Results" component={Results} />

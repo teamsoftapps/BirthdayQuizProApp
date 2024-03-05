@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import HeaderComp from '../../components/Header/HeaderComp';
-import {colors, images} from '../../../BirthdayQuizProApp-master/src/utlies';
+import {colors, images} from '../../utlies';
 import {
   responsiveFontSize,
   responsiveHeight,
