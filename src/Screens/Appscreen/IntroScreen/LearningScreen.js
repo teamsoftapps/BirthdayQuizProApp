@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
-import {SubmitButton} from '../../components/Buttons/SubmitButton';
+import {SubmitButton} from '../../../components/Buttons/SubmitButton';
 
 import {
   responsiveFontSize,
@@ -18,10 +18,10 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {colors, images} from '../../../utlies';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 
 const LearningScreen = () => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
 
 
