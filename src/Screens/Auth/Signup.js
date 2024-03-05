@@ -7,20 +7,31 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+<<<<<<< HEAD
+  ScrollView,
+=======
   ScrollView
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
 //   import {SafeAreaView} from 'react-native-safe-area-context';
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {colors, images} from '../../utlies';
+<<<<<<< HEAD
+import {useNavigation} from '@react-navigation/native';
+=======
   import {useNavigation} from '@react-navigation/native';
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 //   import {AvoidSoftInput} from 'react-native-avoid-softinput';
 //   import {useFocusEffect} from '@react-navigation/native';
 //   import useToast from '../../Hooks';
@@ -107,6 +118,142 @@ const Signup = () => {
       />
       {/* <GestureHandlerRootView> */}
       <ScrollView>
+<<<<<<< HEAD
+        {/* {isLoading ? <MsgModal loader={true} /> : null} */}
+
+        <View style={{marginTop: responsiveHeight(20)}}>
+          <View>
+            <Text style={styles.txt_intro}>Sign Up</Text>
+            <Text style={[styles.txt_intro, styles.intro_small]}>
+              Create an account
+            </Text>
+          </View>
+          <View
+            style={{
+              gap: 10,
+              alignSelf: 'center',
+              marginTop: responsiveHeight(3),
+            }}>
+            <View style={styles.txt_input}>
+              <View style={{height: responsiveHeight(2)}}>
+                <Text
+                  style={{
+                    color: colors.secondary,
+                  }}>
+                  Full name
+                </Text>
+              </View>
+              <View>
+                <TextInput
+                  placeholder="Full name"
+                  style={styles.text_Input}
+                  placeholderTextColor={'white'}
+                  value={value.fullname}
+                  onChangeText={pre =>
+                    setValue(txt => ({...txt, fullname: pre}))
+                  }
+                />
+              </View>
+            </View>
+            <View style={styles.txt_input}>
+              <View style={{height: responsiveHeight(2)}}>
+                <Text
+                  style={{
+                    color: colors.secondary,
+                  }}>
+                  Email
+                </Text>
+              </View>
+              <View>
+                <TextInput
+                  placeholder="Email"
+                  style={styles.text_Input}
+                  placeholderTextColor={'white'}
+                  value={value.email}
+                  onChangeText={pre => setValue(txt => ({...txt, email: pre}))}
+                />
+              </View>
+            </View>
+
+            <View style={styles.txt_input}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View>
+                  {/* text */}
+                  <Text
+                    style={{
+                      color: colors.secondary,
+                      position: 'relative',
+                      //   backgroundColor: 'red',
+                    }}>
+                    Password
+                  </Text>
+                  {/* password */}
+                  <TextInput
+                    placeholder="Password"
+                    placeholderTextColor={'white'}
+                    style={styles.text_Input}
+                    value={value.password}
+                    secureTextEntry={showEye ? false : true}
+                    onChangeText={pre =>
+                      setValue(txt => ({...txt, password: pre}))
+                    }
+                  />
+                </View>
+                {/* image */}
+                <TouchableOpacity onPress={onToggleEye}>
+                  <Image
+                    tintColor={'white'}
+                    source={showEye ? images.showEye : images.hideEye}
+                    resizeMode="contain"
+                    style={{
+                      height: responsiveHeight(2.5),
+                      width: responsiveHeight(2.5),
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <View style={styles.txt_input}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View>
+                  {/* text */}
+                  <Text
+                    style={{
+                      color: colors.secondary,
+                      position: 'relative',
+                      //   backgroundColor: 'red',
+                    }}>
+                    Confirm password
+                  </Text>
+                  {/* password */}
+                  <TextInput
+                    placeholder="Confirm password"
+                    placeholderTextColor={'white'}
+                    style={styles.text_Input}
+                    value={value.confirmpassword}
+                    secureTextEntry={confirmShowEye ? false : true}
+                    onChangeText={pre =>
+                      setValue(txt => ({...txt, confirmpassword: pre}))
+                    }
+                  />
+                </View>
+                {/* image */}
+                <TouchableOpacity onPress={onToggleConfirmEye}>
+                  <Image
+                    tintColor={'white'}
+                    source={confirmShowEye ? images.showEye : images.hideEye}
+                    resizeMode="contain"
+                    style={{
+                      height: responsiveHeight(2.5),
+                      width: responsiveHeight(2.5),
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+            {/* <View style={styles.txt_input}>
+=======
       {/* {isLoading ? <MsgModal loader={true} /> : null} */}
 
       <View style={{marginTop: responsiveHeight(20)}}>
@@ -240,6 +387,7 @@ const Signup = () => {
             </View>
           </View>
           {/* <View style={styles.txt_input}>
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
             <Text
               style={{
                 color: colors.secondary,
@@ -262,6 +410,27 @@ const Signup = () => {
               onChangeText={pre => setValue(txt => ({...txt, password: pre}))}
             />
           </View> */}
+<<<<<<< HEAD
+          </View>
+          <SubmitButton navigate={'signin'} title={'Sign Up'} />
+          <View
+            style={{
+              width: responsiveWidth(73),
+              alignSelf: 'center',
+              marginTop: responsiveHeight(1),
+            }}>
+            <Text style={{color: 'white'}}>
+              Already have an account?{' '}
+              <Text
+                onPress={() => navigation.navigate('signin')}
+                style={{fontWeight: 'bold', color: colors.secondary}}>
+                Sign in
+              </Text>
+            </Text>
+          </View>
+        </View>
+        <View style={{height: responsiveHeight(9)}}></View>
+=======
         </View>
         <SubmitButton navigate={'signin'} title={'Sign Up'} />
         <View
@@ -279,6 +448,7 @@ const Signup = () => {
         </View>
       </View>
       <View style={{height: responsiveHeight(9)}}></View>
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
       </ScrollView>
       {/* </GestureHandlerRootView> */}
     </ImageBackground>
