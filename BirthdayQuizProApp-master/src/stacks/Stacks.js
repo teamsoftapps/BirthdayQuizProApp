@@ -42,7 +42,6 @@ const RootStack = createNativeStackNavigator({
   screens: {
     
     streaks: Profile,
-    // streakss: Results,
     signup: Signup,
     signin: Signin,
   },
