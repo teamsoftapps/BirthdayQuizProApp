@@ -11,10 +11,6 @@ export const InfoCard = ({children, CardStyles}) => {
 };
 const styles = StyleSheet.create({
   btnText: {
-<<<<<<< HEAD
-=======
-
->>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
     color: 'black',
     fontSize: responsiveFontSize(2),
     textAlign: 'center',
@@ -22,17 +18,10 @@ const styles = StyleSheet.create({
   },
   container: {
     marginTop: responsiveHeight(2),
-<<<<<<< HEAD
     width: responsiveWidth(90),
     backgroundColor: '#98FF98',
     borderRadius: responsiveHeight(2),
     height: responsiveHeight(10),
-=======
-    width: responsiveWidth(80),
-    backgroundColor: '#98FF98',
-    borderRadius: responsiveHeight(2),
-    height: responsiveHeight(9),
->>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
