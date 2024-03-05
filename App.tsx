@@ -1,11 +1,20 @@
 import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
 import Loading from './src/components/Loading/Loading';
+<<<<<<< HEAD
 import IntroScreen from './src/Screens/IntroScreen/IntroScreen';
 import Signup from './src/Screens/Auth/Signup';
 import Signin from './src/Screens/Auth/Signin';
 import Win from './src/Screens/IntroScreen/Win';
 import DailyQuiz from './src/Screens/IntroScreen/DailyQuiz';
 import Results from './src/Screens/IntroScreen/Results';
+=======
+import IntroScreen from './src/Screens/Appscreen/IntroScreen/IntroScreen';
+import Signup from './src/Screens/Auth/Signup';
+import Signin from './src/Screens/Auth/Signin';
+import Win from './src/Screens/Appscreen/IntroScreen/Win';
+import DailyQuiz from './src/Screens/Appscreen/IntroScreen/DailyQuiz';
+import Results from './src/Screens/Appscreen/IntroScreen/Results';
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 import React from 'react';
 
 //  Navigation S  ettings
@@ -17,8 +26,13 @@ import React from 'react';
 const App = () => {
   return (
     <View style={{flex: 1}}>
+<<<<<<< HEAD
       {/* <DailyQuiz /> */}
       <Results />
+=======
+      <DailyQuiz />
+      {/* <Results /> */}
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
       {/* <Signin></Signin> */}
       {/* <Win></Win> */}
       {/* <Signup></Signup> */}

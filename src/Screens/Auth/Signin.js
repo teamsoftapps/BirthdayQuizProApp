@@ -19,7 +19,11 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {colors, images} from '../../utlies';
+<<<<<<< HEAD
 import {useNavigation} from '@react-navigation/native';
+=======
+  import {useNavigation} from '@react-navigation/native';
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 //   import {AvoidSoftInput} from 'react-native-avoid-softinput';
 //   import {useFocusEffect} from '@react-navigation/native';
 //   import useToast from '../../Hooks';
@@ -29,7 +33,11 @@ import {useNavigation} from '@react-navigation/native';
 const Signin = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
+<<<<<<< HEAD
   const [showEye, setShowEye] = useState(true);
+=======
+  const [showEye, setShowEye] = useState(true)
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
   const [value, setValue] = useState({
     email: '',
     password: '',
@@ -79,9 +87,15 @@ const Signin = () => {
     setSelected(n);
   }, []);
 
+<<<<<<< HEAD
   const onToggleEye = () => {
     setShowEye(!showEye);
   };
+=======
+  const onToggleEye = ()=>{
+    setShowEye(!showEye)
+  }
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
   return (
     <ImageBackground
       source={images.birthdayBGH}
@@ -130,6 +144,7 @@ const Signin = () => {
               />
             </View>
           </View>
+<<<<<<< HEAD
 
           <View style={styles.txt_input}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -167,6 +182,39 @@ const Signin = () => {
                   }}
                 />
               </TouchableOpacity>
+=======
+          
+          <View style={styles.txt_input}>
+            <View style={{flexDirection:"row" , alignItems:"center"}}>
+            <View>
+            {/* text */}
+            <Text
+              style={{
+                color: colors.secondary,
+                position: 'relative',
+                //   backgroundColor: 'red',
+              }}>
+              Password
+            </Text>
+            {/* password */}
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor={'white'}
+              style={styles.text_Input}
+              value={value.password}
+              secureTextEntry={showEye?false:true}
+              onChangeText={pre => setValue(txt => ({...txt, password: pre}))}
+            /></View>
+            {/* image */}
+            <TouchableOpacity onPress={onToggleEye} >
+              <Image
+              tintColor={"white"}
+                source={showEye? images.showEye:images.hideEye}
+                resizeMode="contain"
+                style={{height: responsiveHeight(2.5), width:responsiveHeight(2.5)}}
+              />
+            </TouchableOpacity>
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
             </View>
           </View>
         </View>
@@ -175,13 +223,22 @@ const Signin = () => {
             alignItems: 'flex-end',
             width: responsiveWidth(80),
             alignSelf: 'center',
+<<<<<<< HEAD
             marginTop: responsiveHeight(1.5),
             marginBottom: responsiveHeight(2),
+=======
+            marginTop:responsiveHeight(1.5),
+            marginBottom:responsiveHeight(2)
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
           }}>
           <Text style={{color: colors.secondary}}>Forget Password?</Text>
         </View>
         {/* <View  style={{backgroundColor:"red"}}> */}
+<<<<<<< HEAD
         <SubmitButton title={'Sign In'} />
+=======
+        <SubmitButton  title={'Sign In'} />
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
         {/* </View> */}
         <View
           style={{
@@ -191,9 +248,13 @@ const Signin = () => {
           }}>
           <Text style={{color: 'white'}}>
             Don't have an account?{' '}
+<<<<<<< HEAD
             <Text
               onPress={() => navigation.navigate('signup')}
               style={{fontWeight: 'bold', color: colors.secondary}}>
+=======
+            <Text onPress={()=>navigation.navigate('signup')} style={{fontWeight: 'bold', color: colors.secondary}}>
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
               Sign up
             </Text>
           </Text>

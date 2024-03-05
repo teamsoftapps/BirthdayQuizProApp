@@ -9,6 +9,7 @@ import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
 // import Results from './src/Screens/Appscreen/IntroScreen/Results';
 
 // Appscreens
+<<<<<<< HEAD
 import Results from '../Screens/IntroScreen/Results';
 import Win from '../Screens/IntroScreen/Win';
 import IntroScreen from '../Screens/IntroScreen/IntroScreen';
@@ -17,6 +18,17 @@ import DailyQuiz from '../Screens/IntroScreen/DailyQuiz';
 import FamilyQuiz from '../Screens/IntroScreen/FamilyQuiz';
 import Profile from '../Screens/IntroScreen/Profile';
 import Loading from '../components/Loading/Loading';
+=======
+import Results from '../Screens/Appscreen/IntroScreen/Results';
+import Win from '../Screens/Appscreen/IntroScreen/Win';
+import IntroScreen from '../Screens/Appscreen/IntroScreen/IntroScreen';
+import Streaks from '../Screens/Appscreen/IntroScreen/Streaks';
+import DailyQuiz from '../Screens/Appscreen/IntroScreen/DailyQuiz';
+import FamilyQuiz from '../Screens/Appscreen/IntroScreen/FamilyQuiz';
+import Profile from '../Screens/Appscreen/IntroScreen/Profile';
+import Loading from '../components/Loading/Loading';
+import Rewards from '../Screens/Appscreen/IntroScreen/Rewards';
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 
 // Auth
 import Signin from '../Screens/Auth/Signin';
@@ -40,16 +52,27 @@ const RootStack = createNativeStackNavigator({
     headerShown: false,
   },
   screens: {
+<<<<<<< HEAD
     streaks: Profile,
     // streakss: Results,
     signup: Signup,
     signin: Signin,
+=======
+    
+    streaks:Rewards ,
+    signup: Signup,
+    signin: Signin,  
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
   },
 });
 
 const AppNavigators = () => {
   <Drawer.Navigator
+<<<<<<< HEAD
     // initialRouteName="Home"
+=======
+      // initialRouteName="Home"
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
     screenOptions={{
       headerShown: false,
       unmountOnBlur: true,
@@ -63,7 +86,10 @@ const AppNavigators = () => {
 };
 
 const Auth = createStaticNavigation(RootStack);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
 const AppMain = () => {
   return (
     <AppStack.Navigator>
