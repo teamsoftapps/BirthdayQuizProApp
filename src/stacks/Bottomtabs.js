@@ -76,44 +76,42 @@ const Bottomtabs = () => {
   };
 
   return (
-    <NavigationContainer>
-      <CurvedBottomBar.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        style={styles.bottomBar}
-        circleWidth={responsiveWidth(100)}
-        bgColor="#000"
-        initialRouteName="Home"
-        borderTopLeftRight
-        renderCircle={({selectedTab, navigate}) => (
-          <View style={{alignItems: 'center'}}>
-            <TouchableOpacity
-              style={styles.btnCircle}
-              onPress={() => Alert.alert('Click Action')}></TouchableOpacity>
-            <Text
-              style={{
-                color: '#98FF98',
-                bottom: responsiveHeight(2),
-                fontSize: responsiveFontSize(1.5),
-              }}>
-              Hello
-            </Text>
-          </View>
-        )}
-        tabBar={renderTabBar}>
-        <CurvedBottomBar.Screen
-          position="LEFT"
-          name="Home"
-          component={ManageBirthday}
-        />
-        <CurvedBottomBar.Screen
-          position="RIGHT"
-          name="Notifications"
-          component={Notifications}
-        />
-      </CurvedBottomBar.Navigator>
-    </NavigationContainer>
+    <CurvedBottomBar.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      style={styles.bottomBar}
+      circleWidth={responsiveWidth(100)}
+      bgColor="#000"
+      initialRouteName="Home"
+      borderTopLeftRight
+      renderCircle={({selectedTab, navigate}) => (
+        <View style={{alignItems: 'center'}}>
+          <TouchableOpacity
+            style={styles.btnCircle}
+            onPress={() => Alert.alert('Click Action')}></TouchableOpacity>
+          <Text
+            style={{
+              color: '#98FF98',
+              bottom: responsiveHeight(2),
+              fontSize: responsiveFontSize(1.5),
+            }}>
+            Hello
+          </Text>
+        </View>
+      )}
+      tabBar={renderTabBar}>
+      <CurvedBottomBar.Screen
+        position="LEFT"
+        name="Home"
+        component={ManageBirthday}
+      />
+      <CurvedBottomBar.Screen
+        position="RIGHT"
+        name="Notifications"
+        component={Notifications}
+      />
+    </CurvedBottomBar.Navigator>
   );
 };
 

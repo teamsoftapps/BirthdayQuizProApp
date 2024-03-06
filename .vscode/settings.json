@@ -1,9 +1,5 @@
 {
   "[javascript]": {
-<<<<<<< HEAD
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-=======
-    "editor.defaultFormatter": "Jota0222.multi-formatter"
->>>>>>> 277b4e981c6edf05b1ced81597765116ba7f1977
   }
 }

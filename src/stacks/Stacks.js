@@ -30,33 +30,29 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Bottomtabs from './Bottomtabs';
 
 const Drawer = createDrawerNavigator();
-const tab = createBottomTabNavigator();
 const AppStack = createNativeStackNavigator();
 const RootStack = createNativeStackNavigator({
-  // initialRouteName: 'signup',
   screenOptions: {
     headerShown: false,
   },
   screens: {
-    streaks: Rewards,
     signup: Signup,
     signin: Signin,
-
   },
 });
 
 const AppNavigators = () => {
   return (
     <Drawer.Navigator
-    // initialRouteName="Home"
+      // initialRouteName="Home"
       screenOptions={{
         headerShown: false,
         // unmountOnBlur: true,
-      }}
-      >
-      <Drawer.Screen name="Results" component={Results} />
+      }}>
+      <Drawer.Screen name="Home" component={Bottomtabs} />
     </Drawer.Navigator>
   );
 };
@@ -65,11 +61,12 @@ const Auth = createStaticNavigation(RootStack);
 const AppMain = () => {
   return (
     <AppStack.Navigator
-      screenOptions={{
-        // headerShown: false,
-      }}>
-
-        <AppStack.Screen name={"ALI"} component={Signin}></AppStack.Screen>
+      screenOptions={
+        {
+          // headerShown: false,
+        }
+      }>
+      <AppStack.Screen name={'ALI'} component={Signin}></AppStack.Screen>
       {/* <AppStack.Screen
         name="AppNavigators"
         component={AppNavigators}></AppStack.Screen> */}
@@ -83,35 +80,17 @@ const Stacks = () => {
     <Auth />
   ) : (
     <NavigationContainer>
-   <Drawer.Navigator
-      initialRouteName="Results"
-      screenOptions={{
-        headerShown: false,
-        
-        // unmountOnBlur: true,
-      }}
-      >
-      <Drawer.Screen name="Results" component={Results} />
-    </Drawer.Navigator>
-      {/* <AppMain /> */}
+      <Drawer.Navigator
+        initialRouteName="Results"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Drawer.Screen name="Results" component={Results} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
-  // <NavigationContainer>
-
-  //  {/* </NavigationContainer> */}
 };
 
 export default Stacks;
 
 const styles = StyleSheet.create({});
-
-// {/* <View style={{flex: 1}}>
-// <DailyQuiz />
-// {/* <Results /> */}
-// {/* <Signin></Signin> */}
-// {/* <Win></Win> */}
-// {/* <Signup></Signup> */}
-// {/* <StatusBar backgroundColor={'transparent'} translucent={true} /> */}
-// {/* <IntroScreen /> */}
-// {/* <Loading /> */}
-// </View> */}

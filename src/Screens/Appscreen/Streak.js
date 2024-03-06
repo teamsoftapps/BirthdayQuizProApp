@@ -8,13 +8,14 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import HeaderComp from '../../components/Header/HeaderComp';
-import {colors, images} from '../../../BirthdayQuizProApp-master/src/utlies';
+
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {Calendar, CalendarList, LocaleConfig} from 'react-native-calendars';
+import { colors ,images} from '../../utlies';
 
 const Streak = () => {
   const [iselected, setSelected] = useState();
