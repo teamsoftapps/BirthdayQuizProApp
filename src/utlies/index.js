@@ -36,6 +36,12 @@ export const images = {
   user: require('../Assets/user.png'),
   pencil: require('../Assets/pencil.png'),
   share: require('../Assets/share.png'),
+  grayCoin: require('../Assets/grayCoin.png'),
+  goldCoin: require('../Assets/goldCoin.png'),
+  familyIcon: require('../Assets/familyIcon.png'),
+  checkedCoin: require('../Assets/checkedCoin.png'),
+  
+  
 };
 
 // export const colors = {
@@ -64,12 +70,12 @@ export const images = {
 //     clock: require("../Assets/clock.png"),
 //     trophy: require("../Assets/trophy.png"),
 //     familyIcon:require("../Assets/familyQuizdp.png"),
-//     streak:require("../Assets/streak.png"), 
-//     avatar:require("../Assets/avatar.png"), 
-//     cake:require("../Assets/cake.png"), 
-//     partymin:require("../Assets/partymin.png"), 
-//     avatar:require("../Assets/avatar.png"), 
-//     editProfileIcon:require("../Assets/editProfileIcon.png"), 
+//     streak:require("../Assets/streak.png"),
+//     avatar:require("../Assets/avatar.png"),
+//     cake:require("../Assets/cake.png"),
+//     partymin:require("../Assets/partymin.png"),
+//     avatar:require("../Assets/avatar.png"),
+//     editProfileIcon:require("../Assets/editProfileIcon.png"),
 //     backArrow:require("../Assets/backArrow.png"),
 //     share:require("../Assets/share.png"),
 //     dots:require("../Assets/dots.png"),
@@ -77,16 +83,9 @@ export const images = {
 //     goldCoin:require("../Assets/goldCoin.png"),
 //     menIcon:require("../Assets/menIcon.png"),
 
-
-
-
-    
-
 // }
 
-
 export const colors = {
-    primary : "#715CE4",
-    secondary:"#98FF98"
-    
-}
+  primary: '#715CE4',
+  secondary: '#98FF98',
+};

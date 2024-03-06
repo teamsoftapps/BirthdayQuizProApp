@@ -13,6 +13,6 @@ import Streak from './src/Screens/Appscreen/Streak';
 import LearningScreen from './src/Screens/Appscreen/IntroScreen/LearningScreen';
 
 // AppRegistry.registerComponent(appName, () => App);
-AppRegistry.registerComponent(appName, () => Streak);
+AppRegistry.registerComponent(appName, () => Stacks);
 // AppRegistry.registerComponent(appName, () => LearningScreen);
  

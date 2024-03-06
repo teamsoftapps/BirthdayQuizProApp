@@ -1,12 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
-// import Loading from './src/components/Loading/Loading';
-// import IntroScreen from './src/Screens/Appscreen/IntroScreen/IntroScreen';
-// import Signup from './src/Screens/Auth/Signup';
-// import Signin from './src/Screens/Auth/Signin';
 
-// import Results from './src/Screens/Appscreen/IntroScreen/Results';
 
 // Appscreens
 import Results from '../Screens/IntroScreen/Results';
@@ -18,6 +13,9 @@ import FamilyQuiz from '../Screens/IntroScreen/FamilyQuiz';
 import Profile from '../Screens/IntroScreen/Profile';
 import Loading from '../components/Loading/Loading';
 import Rewards from '../Screens/Appscreen/IntroScreen/Rewards';
+import LearningScreen from '../Screens/Appscreen/IntroScreen/LearningScreen';
+import CompletedDemo from '../Screens/Appscreen/IntroScreen/CompletedDemo';
+// import Notifications from '../Screens/Appscreen/Notifications';
 
 // Auth
 import Signin from '../Screens/Auth/Signin';
@@ -41,22 +39,19 @@ const RootStack = createNativeStackNavigator({
     headerShown: false,
   },
   screens: {
-    streaks: Rewards,
+    streaks: CompletedDemo,
+    // streaks: LearningScreen,
     signup: Signup,
     signin: Signin,
-
   },
 });
 
 const AppNavigators = () => {
   return (
     <Drawer.Navigator
-    // initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        // unmountOnBlur: true,
-      }}
-      >
+      }}>
       <Drawer.Screen name="Results" component={Results} />
     </Drawer.Navigator>
   );
@@ -66,50 +61,32 @@ const Auth = createStaticNavigation(RootStack);
 const AppMain = () => {
   return (
     <AppStack.Navigator
-      screenOptions={{
-        // headerShown: false,
-      }}>
-
-        <AppStack.Screen name={"ALI"} component={Signin}></AppStack.Screen>
-    
+      // screenOptions={
+      //   {
+      //     // headerShown: false,
+      //   }
+      // }
+      >
+      <AppStack.Screen name='app' component={AppNavigators}></AppStack.Screen>
+      {/* <AppStack.Screen name={'Signin'} component={Signin}></AppStack.Screen> */}
     </AppStack.Navigator>
   );
 };
 
 const Stacks = () => {
   const [dummyAuthenticated, setDummyAuthenticated] = useState(true);
-  return dummyAuthenticated ? (
+  return  dummyAuthenticated ? (
     <Auth />
   ) : (
     <NavigationContainer>
-   <Drawer.Navigator
-      initialRouteName="Results"
-      screenOptions={{
-        headerShown: false,
-        
-    
-      }}
-      >
-      <Drawer.Screen name="Results" component={Results} />
-    </Drawer.Navigator>
+     <AppMain></AppMain>
     </NavigationContainer>
   );
-  // <NavigationContainer>
 
-  //  {/* </NavigationContainer> */}
 };
 
 export default Stacks;
 
 const styles = StyleSheet.create({});
 
-// {/* <View style={{flex: 1}}>
-// <DailyQuiz />
-// {/* <Results /> */}
-// {/* <Signin></Signin> */}
-// {/* <Win></Win> */}
-// {/* <Signup></Signup> */}
-// {/* <StatusBar backgroundColor={'transparent'} translucent={true} /> */}
-// {/* <IntroScreen /> */}
-// {/* <Loading /> */}
-// </View> */}
+

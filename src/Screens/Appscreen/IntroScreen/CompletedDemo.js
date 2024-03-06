@@ -1,17 +1,20 @@
+// DATE: 6-3-2024
+// PROJECT: 56A
+
+// UPDATES
+
+// DEVELO
 import {
   Image,
   ImageBackground,
   StatusBar,
   StyleSheet,
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
   ScrollView,
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../../components/Buttons/SubmitButton';
-
 import {
   responsiveFontSize,
   responsiveHeight,
@@ -19,11 +22,11 @@ import {
   useResponsiveFontSize,
 } from 'react-native-responsive-dimensions';
 import {colors, images} from '../../../utlies';
+// import {useNavigation} from '@react-navigation/native';
 
-
-const LearningScreen = () => {
-
+const CompletedDemo = () => {
   const [selected, setSelected] = useState(0);
+
   const btn = useCallback(n => {
     setSelected(n);
   }, []);
@@ -37,48 +40,23 @@ const LearningScreen = () => {
       }}>
       <StatusBar
         translucent={true}
-        barStyle={'dark-content'}
+        barStyle={'light-content'}
         backgroundColor={'transparent'}
       />
       {/* <GestureHandlerRootView> */}
       <ScrollView>
-        {/* {isLoading ? <MsgModal loader={true} /> : null} */}
-
-        <View style={{marginTop: responsiveHeight(10)}}>
-          <View style={{gap: responsiveHeight(0.7)}}>
-            <Text style={styles.txt_intro}>Family</Text>
-            <Text style={[styles.txt_intro, styles.intro_small]}>
-              Easy Level
-            </Text>
-            <Text style={[styles.txt_intro, styles.intro_smallGreen]}>
-              Birthday 1/4
-            </Text>
-          </View>
-          <Image style={styles.avatarImage} source={images.familyIcon}></Image>
+        <View style={{marginTop: responsiveHeight(10), gap:responsiveHeight(1)}}>
+          <Image style={styles.avatarImage} source={images.checkedCoin}/>
+          <Text style={styles.txt_intro}>Congratulations</Text>
           <View style={styles.familyContainer}>
-            <Text style={styles.infoHeading}>
-              Name: <Text style={styles.infoText}>Grandma</Text>
-            </Text>
-            <Text style={styles.infoHeading}>
-              Birthday: <Text style={styles.infoText}>June 15, 1945</Text>
-            </Text>
-           
             <View style={styles.FactsText}>
-            <Text
-              style={[styles.infoHeading, {marginTop: responsiveHeight(6)}]}>
-              Facts
-            </Text>
               <Text style={[styles.txt_intro, styles.intro_small]}>
-                Grandma is known for her delicious homemade apple pie.
+                You've completed studying the birthdays of all available family
+                members
               </Text>
-              <Text
-                style={[
-                  styles.txt_intro,
-                  styles.intro_small,
-                  {marginBottom: responsiveHeight(6)},
-                ]}>
-                She loves spending time with her grandchildren and telling
-                stories about the past.
+              <Text style={[styles.txt_intro, styles.intro_small]}>
+                Keep up the good work and check back later for new content
+                updates!
               </Text>
             </View>
           </View>
@@ -88,12 +66,14 @@ const LearningScreen = () => {
               alignSelf: 'center',
               marginTop: responsiveHeight(3),
             }}></View>
-          <SubmitButton navigate={'signin'} title={'Next'} />
-          <SubmitButton
-            btnStyles={{backgroundColor: 'white'}}
-            navigate={'signin'}
-            title={'Quiz Mode'}
-          />
+          <View>
+            <SubmitButton navigate={'signin'} title={'Back to menu'} />
+            <SubmitButton
+              btnStyles={{backgroundColor: 'white'}}
+              navigate={'signin'}
+              title={'Quiz Mode'}
+            />
+          </View>
         </View>
         <View style={{height: responsiveHeight(9)}}></View>
       </ScrollView>
@@ -101,14 +81,13 @@ const LearningScreen = () => {
   );
 };
 
-export default LearningScreen;
+export default CompletedDemo;
 
 const styles = StyleSheet.create({
   avatarImage: {
-    marginVertical: responsiveHeight(2),
     alignSelf: 'center',
-    width: responsiveWidth(25),
-    height: responsiveWidth(32),
+    width: responsiveHeight(25),
+    height: responsiveHeight(25),
   },
   FactsText: {
     width: responsiveWidth(80),
@@ -116,14 +95,11 @@ const styles = StyleSheet.create({
   },
 
   infoText: {
-
     color: 'white',
     fontSize: responsiveFontSize(2.5),
     alignSelf: 'center',
-    fontWeight:"normal",
   },
   infoHeading: {
-    fontWeight:"600",
     color: colors.secondary,
     fontSize: responsiveFontSize(2.5),
     alignSelf: 'center',
@@ -138,14 +114,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: responsiveFontSize(4),
   },
+
   intro_smallGreen: {
     color: colors.secondary,
     fontSize: responsiveFontSize(2),
     fontWeight: 'normal',
   },
   intro_small: {
+    // fontFamily: 'Poppins-BoldItalic',
     color: 'white',
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(2.5),
     fontWeight: 'normal',
   },
 
