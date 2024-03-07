@@ -8,14 +8,15 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import HeaderComp from '../../components/Header/HeaderComp';
-
+import {colors, images} from '../../utlies';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {Calendar, CalendarList, LocaleConfig} from 'react-native-calendars';
-import { colors ,images} from '../../utlies';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
 
 const Streak = () => {
   const [iselected, setSelected] = useState();
@@ -29,35 +30,37 @@ const Streak = () => {
       {direction === 'right' ? '>' : '<'}
     </Text>
   );
-
+  const navigation = useNavigation();
   return (
     <ImageBackground
       style={{flex: 1, backgroundColor: '#715CE4'}}
       source={images.birthdayBGH}>
-      <StatusBar barStyle={'light-content'} backgroundColor={colors.primary} />
-
-      <HeaderComp
-        headerStyle={{
-          marginTop: responsiveHeight(2),
-          marginHorizontal: responsiveWidth(1),
-        }}
-        leftImageStyle={{
-          width: responsiveWidth(5),
-          height: responsiveHeight(5),
-        }}
-        RightImageStyle={{
-          width: responsiveWidth(7),
-          height: responsiveHeight(7),
-        }}
-        leftImage={images.close}
-        RightImage={images.share2}
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={'transparent'}
+        translucent
       />
 
-      <View
-        style={{
-          flex: 1,
-          paddingHorizontal: responsiveWidth(6),
-        }}>
+      <SafeAreaView style={{flex: 1, marginHorizontal: responsiveWidth(6)}}>
+        <HeaderComp
+          navigation={navigation}
+          LeftparentView
+          RightparentView
+          headerStyle={{
+            marginTop: responsiveHeight(2),
+          }}
+          leftImageStyle={{
+            width: responsiveWidth(5),
+            height: responsiveHeight(5),
+          }}
+          RightImageStyle={{
+            width: responsiveWidth(7),
+            height: responsiveHeight(7),
+          }}
+          leftImage={images.close}
+          RightImage={images.share2}
+        />
+
         <View
           style={{
             flexDirection: 'row',
@@ -93,7 +96,7 @@ const Streak = () => {
             theme={styles.theme}
           />
         </View>
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };

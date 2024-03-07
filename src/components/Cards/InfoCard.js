@@ -1,13 +1,17 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 
-export const InfoCard = ({children, CardStyles}) => {
-  return <View style={[styles.container, CardStyles]}>{children}</View>;
+export const InfoCard = ({children, CardStyles, onPress = () => {}}) => {
+  return (
+    <TouchableOpacity onPress={onPress} style={[styles.container, CardStyles]}>
+      {children}
+    </TouchableOpacity>
+  );
 };
 const styles = StyleSheet.create({
   btnText: {

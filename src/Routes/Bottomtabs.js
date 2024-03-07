@@ -10,7 +10,6 @@ import {
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Home from '../Screens/IntroScreen/Home';
 import Notifications from '../Screens/Appscreen/Notifications';
 import {images} from '../utlies';
 
@@ -20,7 +19,10 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
-import ManageBirthday from '../Screens/IntroScreen/ManageBirthday';
+import Streak from '../Screens/Appscreen/Streak';
+import Home from '../Screens/Appscreen/IntroScreen/Home';
+import LeaderBoard from '../Screens/Appscreen/IntroScreen/LeaderBoard';
+import DrawerStack from './DrawerStack';
 
 const Bottomtabs = () => {
   const _renderIcon = (routeName, selectedTab) => {
@@ -76,42 +78,53 @@ const Bottomtabs = () => {
   };
 
   return (
-    <CurvedBottomBar.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-      style={styles.bottomBar}
-      circleWidth={responsiveWidth(100)}
-      bgColor="#000"
-      initialRouteName="Home"
-      borderTopLeftRight
-      renderCircle={({selectedTab, navigate}) => (
-        <View style={{alignItems: 'center'}}>
-          <TouchableOpacity
-            style={styles.btnCircle}
-            onPress={() => Alert.alert('Click Action')}></TouchableOpacity>
-          <Text
-            style={{
-              color: '#98FF98',
-              bottom: responsiveHeight(2),
-              fontSize: responsiveFontSize(1.5),
-            }}>
-            Hello
-          </Text>
-        </View>
-      )}
-      tabBar={renderTabBar}>
-      <CurvedBottomBar.Screen
-        position="LEFT"
-        name="Home"
-        component={ManageBirthday}
-      />
-      <CurvedBottomBar.Screen
-        position="RIGHT"
-        name="Notifications"
-        component={Notifications}
-      />
-    </CurvedBottomBar.Navigator>
+    <View style={{flex: 1}}>
+      <CurvedBottomBar.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+        style={styles.bottomBar}
+        circleWidth={responsiveWidth(100)}
+        bgColor="#000"
+        initialRouteName="Home"
+        borderTopLeftRight
+        renderCircle={({selectedTab, navigate}) => (
+          <View style={{alignItems: 'center'}}>
+            <TouchableOpacity
+              style={styles.btnCircle}
+              onPress={() => Alert.alert('Click Action')}>
+              <Image
+                source={images.trophy2}
+                style={{
+                  width: responsiveWidth(8),
+                  height: responsiveWidth(8),
+                  resizeMode: 'contain',
+                }}
+              />
+            </TouchableOpacity>
+            <Text
+              style={{
+                color: '#fff',
+                bottom: responsiveHeight(2),
+                fontSize: responsiveFontSize(1.5),
+              }}>
+              Start Quiz
+            </Text>
+          </View>
+        )}
+        tabBar={renderTabBar}>
+        <CurvedBottomBar.Screen
+          position="LEFT"
+          name="Home"
+          component={DrawerStack}
+        />
+        <CurvedBottomBar.Screen
+          position="RIGHT"
+          name="Notifications"
+          component={LeaderBoard}
+        />
+      </CurvedBottomBar.Navigator>
+    </View>
   );
 };
 

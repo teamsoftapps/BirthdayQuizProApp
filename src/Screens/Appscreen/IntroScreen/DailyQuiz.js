@@ -117,10 +117,7 @@ const DailyQuiz = () => {
             </View>
           </View>
           <View style={styles.container_3}>
-            <Text
-              style={styles.text_1}>
-              {displayText}
-            </Text>
+            <Text style={styles.text_1}>{displayText}</Text>
             <Animated.View
               style={{
                 ...StyleSheet.absoluteFill,
@@ -188,7 +185,7 @@ const DailyQuiz = () => {
             })}
           </View>
           <View style={{marginTop: responsiveHeight(3)}}>
-            <SubmitButton title={'Submit'} />
+            <SubmitButton navigate={'Win'} title={'Submit'} />
           </View>
         </View>
       </ScrollView>
@@ -200,7 +197,7 @@ const DailyQuiz = () => {
 export default DailyQuiz;
 
 const styles = StyleSheet.create({
-  text_1:{
+  text_1: {
     color: '#000',
     fontSize: responsiveFontSize(2),
     zIndex: 9999,

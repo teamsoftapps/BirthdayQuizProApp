@@ -27,12 +27,23 @@ const Notifications = () => {
       <StatusBar barStyle={'light-content'} backgroundColor={'#715CE4'} />
 
       <HeaderComp
+        headerStyle={{
+          marginHorizontal: responsiveWidth(3),
+          marginTop: responsiveHeight(7),
+        }}
+        LeftparentView
+        RightparentView
         OptionOnpress={() => {
           alert('OK');
         }}
       />
 
-      <View style={{flex: 1, alignItems: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          marginHorizontal: responsiveWidth(3),
+        }}>
         <View
           style={{
             flexDirection: 'row',

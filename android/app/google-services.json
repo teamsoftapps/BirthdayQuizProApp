@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "298717570122",
+    "project_id": "birthday-quiz-pro",
+    "storage_bucket": "birthday-quiz-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298717570122:android:7968c0609127d819ee32b3",
+        "android_client_info": {
+          "package_name": "com.birthdayquizproapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAUTcnVFxDYcGKQNejOQwbPh6mKj4e8vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

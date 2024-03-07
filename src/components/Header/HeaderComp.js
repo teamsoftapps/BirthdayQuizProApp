@@ -16,25 +16,51 @@ const HeaderComp = ({
   RightImage,
   RightImageStyle = {},
   headerStyle = {},
+  headingTextStyle = {},
+  LeftparentView = false,
+  RightparentView = false,
 }) => {
   return (
-    <View style={[styles.headerStyle, headerStyle]}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.goBack();
-        }}>
-        <Image
-          source={leftImage ? leftImage : images.back}
-          style={[styles.back, leftImageStyle]}
-        />
-      </TouchableOpacity>
-      {heading && <Text style={styles.heading}>{heading}</Text>}
-      <TouchableOpacity onPress={OptionOnpress}>
-        <Image
-          source={RightImage ? RightImage : images.more}
-          style={[styles.back, {height: responsiveHeight(3)}, RightImageStyle]}
-        />
-      </TouchableOpacity>
+    <View
+      style={[
+        styles.headerStyle,
+        {
+          justifyContent:
+            !LeftparentView && !RightparentView
+              ? 'center'
+              : LeftparentView && !RightparentView
+              ? ''
+              : 'space-between',
+        },
+        headerStyle,
+      ]}>
+      {!!LeftparentView && (
+        <TouchableOpacity
+          style={{flex: !!LeftparentView && !RightparentView ? 0.5 : 0}}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Image
+            source={leftImage ? leftImage : images.back}
+            style={[styles.back, leftImageStyle]}
+          />
+        </TouchableOpacity>
+      )}
+      {heading && (
+        <Text style={[styles.heading, headingTextStyle]}>{heading}</Text>
+      )}
+      {!!RightparentView && (
+        <TouchableOpacity onPress={OptionOnpress}>
+          <Image
+            source={RightImage ? RightImage : images.more}
+            style={[
+              styles.back,
+              {height: responsiveHeight(3)},
+              RightImageStyle,
+            ]}
+          />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -51,13 +77,11 @@ const styles = StyleSheet.create({
   heading: {
     fontFamily: 'Poppins-SemiBold',
     color: '#fff',
-    fontSize: responsiveFontSize(2.3),
+    fontSize: responsiveFontSize(2.8),
     fontWeight: 'bold',
   },
   headerStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: responsiveWidth(5),
     alignItems: 'center',
   },
 });

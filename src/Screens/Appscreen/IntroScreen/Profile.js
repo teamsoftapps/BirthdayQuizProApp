@@ -186,7 +186,7 @@ const Profile = () => {
           </TouchableOpacity>
           <Text style={styles.name}>{name ? name : 'Mark timber'}</Text>
           <Text style={styles.welcome}>24 Years</Text>
-          {/* <Text style={styles.name}>{"Muhammad Ibrahim KHAN"}</Text> */}
+   
           {editName && (
             <View
               style={{
@@ -196,20 +196,13 @@ const Profile = () => {
                 justifyContent: 'space-between',
               }}>
               <TextInput
+                autoCapitalize='none'
                 style={styles.TextInput}
                 value={name}
                 onChangeText={handleOnChangeName}
                 placeholder={'Enter new Name'}></TextInput>
               <TouchableOpacity onPress={onSavedName}>
-                {/* <LinearGradient
-              start={{x: 0, y: 0}}
-              end={{x: 2, y: 0}}
-              colors={['#232323', '#020f00']}
-              // style={styles.linearGradient}
-              style={styles.confirm}
-              >
-              <Text style={[styles.loginbtnTxt]}>Confirm</Text>
-            </LinearGradient> */}
+            
               </TouchableOpacity>
             </View>
           )}

@@ -9,18 +9,20 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {colors, images} from '../../utlies';
+import {colors, images} from '../../../utlies';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {Data} from '../../json/ManageBirthday';
-import {InfoCard} from '../../components/Cards/InfoCard';
-import ButtonComp from '../../components/Buttons/ButtonComp';
-import HeaderComp from '../../components/Header/HeaderComp';
+import {Data} from '../../../json/ManageBirthday';
+import {InfoCard} from '../../../components/Cards/InfoCard';
+import ButtonComp from '../../../components/Buttons/ButtonComp';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
 
 const ManageBirthday = () => {
+  const navigation = useNavigation();
   const heading = () => {
     return (
       <View>
@@ -28,7 +30,6 @@ const ManageBirthday = () => {
       </View>
     );
   };
-
   const footer = () => {
     return (
       <View>
@@ -58,57 +59,60 @@ const ManageBirthday = () => {
     <ImageBackground
       style={{flex: 1, backgroundColor: '#715CE4'}}
       source={images.birthdayBG}>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#715CE4'} />
-
-      <View>
-        <FlatList
-          ListHeaderComponent={heading}
-          ListFooterComponent={footer}
-          data={Data}
-          renderItem={({item, index}) => {
-            return (
-              <View style={{flex: 1}}>
-                <View>
-                  <Text style={styles.manage}>{item.heading}</Text>
-                </View>
-
-                <View>
-                  {item.persons.map((itm, i) => {
-                    return (
-                      <View key={i}>
-                        <InfoCard
-                          CardStyles={styles.cardStyles}
-                          children={
-                            <View>
-                              <Text style={styles.name}>
-                                {itm.name}
-                                <Text style={styles.reamining}>
-                                  {' '}
-                                  {itm.reamining}
+      <StatusBar
+        barStyle={'default'}
+        backgroundColor={'transparent'}
+        translucent
+      />
+      <SafeAreaView edges={['top']} style={{flex: 1}}>
+        <View>
+          <FlatList
+            ListHeaderComponent={heading}
+            ListFooterComponent={footer}
+            data={Data}
+            renderItem={({item, index}) => {
+              return (
+                <View style={{flex: 1}}>
+                  <View>
+                    <Text style={styles.manage}>{item.heading}</Text>
+                  </View>
+                  <View>
+                    {item.persons.map((itm, i) => {
+                      return (
+                        <View key={i}>
+                          <InfoCard
+                            onPress={() => {
+                              navigation.navigate('');
+                            }}
+                            CardStyles={styles.cardStyles}
+                            children={
+                              <View>
+                                <Text style={styles.name}>
+                                  {itm.name}
+                                  <Text style={styles.reamining}>
+                                    {itm.reamining}
+                                  </Text>
                                 </Text>
-                              </Text>
-
-                              <Text style={styles.birth}>
-                                {itm.dateofBirth}
-                              </Text>
-                            </View>
-                          }
-                        />
-                      </View>
-                    );
-                  })}
+                                <Text style={styles.birth}>
+                                  {itm.dateofBirth}
+                                </Text>
+                              </View>
+                            }
+                          />
+                        </View>
+                      );
+                    })}
+                  </View>
                 </View>
-              </View>
-            );
-          }}
-        />
-      </View>
+              );
+            }}
+          />
+        </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
-
 export default ManageBirthday;
-
 const styles = StyleSheet.create({
   manage: {
     fontFamily: 'Poppins-SemiBold',

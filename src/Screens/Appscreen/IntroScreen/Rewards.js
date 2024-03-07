@@ -74,24 +74,6 @@ const Rewards = () => {
 
 
 
-//   useEffect(() => {
-//     // Play the ringtone when the component mounts
-//     if (!ringtonePlayed) {
-//       ringtone.play(success => {
-//         if (success) {
-//           console.log('Successfully played the ringtone');
-//         } else {
-//           console.log('Failed to play the ringtone');
-//         }
-//       });
- 
-//       return () => {
-//         ringtone.stop();
-//       };
-      
-//       setRingtonePlayed(true);
-//     }
-//   }, [ringtonePlayed])
 
   const btn = useCallback(n => {
     setSelected(n);

@@ -1,6 +1,14 @@
 import AppIntroSlider from 'react-native-app-intro-slider';
 
-import {ScrollView, View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import {useState} from 'react';
 import {images} from '../../../utlies';
 import {
@@ -10,7 +18,6 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {SubmitButton} from '../../../components/Buttons/SubmitButton';
-
 
 const slides = [
   {
@@ -55,9 +62,8 @@ const IntroScreen = () => {
           <SubmitButton title={"Let's Get Started"} />
         ) : (
           <>
-
-            <SubmitButton title={'Signin'} />
-            <SubmitButton title={'Signup'} key={item.key}  />
+            <SubmitButton title={'Signin'} navigate={'signin'} />
+            <SubmitButton title={'Signup'} navigate={'signup'} key={item.key} />
             {/* <SubmitButton title={'Signup'} buttonStyles={{backgroundColor:"white"}} /> */}
           </>
         )}
@@ -72,13 +78,13 @@ const IntroScreen = () => {
   };
   const activeDotStyle = {
     backgroundColor: '#98FF98',
-    width: responsiveWidth(5),
+    width: responsiveWidth(10),
   };
-
 
   return (
     <AppIntroSlider
       // showNextButton={false}
+      showNextButton={true}
       dotStyle={dotStyle}
       activeDotStyle={activeDotStyle}
       renderItem={renderItem}
