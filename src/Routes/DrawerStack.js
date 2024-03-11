@@ -17,6 +17,7 @@ const DrawerStack = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+        drawerStyle: {},
       }}>
       <Drawer.Screen
         name="Home1"

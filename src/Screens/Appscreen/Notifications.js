@@ -8,15 +8,15 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {images} from '../../../utlies';
-import HeaderComp from '../../../components/Header/HeaderComp';
+import {images} from '../../utlies';
+import HeaderComp from '../../components/Header/HeaderComp';
 import {
   responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import ButtonComp from '../../../components/Buttons/ButtonComp';
-import ModalComp from '../../../components/Modal/ModalComp';
+import ButtonComp from '../../components/Buttons/ButtonComp';
+import ModalComp from '../../components/Modal/ModalComp';
 import {useNavigation} from '@react-navigation/native';
 
 const Notifications = () => {

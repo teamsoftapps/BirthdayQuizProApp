@@ -22,11 +22,8 @@ import {
 import {colors, images} from '../../../utlies';
 import {useNavigation} from '@react-navigation/native';
 
-import {
- 
-  GestureHandlerRootView,
-  ScrollView,
-} from 'react-native-gesture-handler';
+import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Dummy_data = [
   {
@@ -59,21 +56,31 @@ const Dummy_data = [
     heading: 'Streak keeper',
     description: 'Earned for correctly\nanswering the questions',
   },
+  {
+    id: 7,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 8,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 9,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
+  {
+    id: 10,
+    heading: 'Streak keeper',
+    description: 'Earned for correctly\nanswering the questions',
+  },
 ];
 const Rewards = () => {
-    const [ringtonePlayed, setRingtonePlayed] = useState(false);
+  const [ringtonePlayed, setRingtonePlayed] = useState(false);
   const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
-
-//   const ringtone = new Sound(require('../../../Assets/Audios/A.mp3'), Sound.MAIN_BUNDLE, error => {
-//     if (error) {
-//       console.log('Failed to load the sound', error);
-//       return;
-//     }
-//   });
-
-
-
 
   const btn = useCallback(n => {
     setSelected(n);
@@ -104,87 +111,81 @@ const Rewards = () => {
   };
 
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <ImageBackground
-        source={images.birthdayBGH}
+    <ImageBackground
+      source={images.birthdayBGH}
+      style={{
+        flex: 1,
+        backgroundColor: colors.primary,
+      }}>
+      <StatusBar
+        translucent={true}
+        barStyle={'default'}
+        backgroundColor={'transparent'}
+      />
+
+      <SafeAreaView
         style={{
+          gap: responsiveHeight(2),
           flex: 1,
-          backgroundColor: colors.primary,
         }}>
-        <StatusBar
-          translucent={true}
-          barStyle={'dark-content'}
-          backgroundColor={'transparent'}
-        />
-
-        {/* <ScrollView> */}
-        <View
-          style={{marginTop: responsiveHeight(10), gap: responsiveHeight(2)}}>
-          <View>
-            <Text style={styles.txt_intro}>Rewards</Text>
-            <Text style={[styles.txt_intro, styles.intro_small]}>
-              Explore your achievements and claim your{'\n'} rewards here!
-            </Text>
-          </View>
-          <View
-            style={{
-              gap: 10,
-              alignSelf: 'center',
-              marginTop: responsiveHeight(3),
-            }}>
-            <InfoCard
-              CardStyles={{
-                backgroundColor: 'white',
-                paddingHorizontal: responsiveHeight(3),
-                height: responsiveHeight(14),
-                gap: responsiveHeight(1),
-              }}>
-              <Text style={styles.heading}>Sign in for points</Text>
-              <View style={styles.pointsContainer}>
-                {/* <View style={styles.pointsContainer}> */}
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.grayCoin}></Image>
-                  <Text style={styles.iconTxt}>Day 1</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.goldCoin}></Image>
-                  <Text style={styles.iconSeletedTxt}>Day 2</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.goldCoin}></Image>
-                  <Text style={styles.iconSeletedTxt}>Day 3</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.goldCoin}></Image>
-                  <Text style={styles.iconSeletedTxt}>Day 4</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.goldCoin}></Image>
-                  <Text style={styles.iconSeletedTxt}>Day 5</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                  <Image style={styles.icon} source={images.goldCoin}></Image>
-                  <Text style={styles.iconSeletedTxt}>Day 6</Text>
-                </View>
-
-                {/* </View> */}
-              </View>
-            </InfoCard>
-          </View>
-          {/* <View> */}
-            <FlatList style={{ height:responsiveHeight(50)}}
-              scrollEnabled
-              renderItem={renderItem}
-              data={Dummy_data}
-              keyExtractor={item => item.id}
-            />
-          {/* </View> */}
+        <View style={{marginVertical: responsiveHeight(3)}}>
+          <Text style={styles.txt_intro}>Rewards</Text>
+          <Text style={[styles.txt_intro, styles.intro_small]}>
+            Explore your achievements and claim your{'\n'} rewards here!
+          </Text>
         </View>
-        <View style={{height: responsiveHeight(9)}}></View>
-        {/* </ScrollView> */}
-        {/* </GestureHandlerRootView> */}
-      </ImageBackground>
-    </GestureHandlerRootView>
+        <View
+          style={{
+            gap: 10,
+            alignSelf: 'center',
+            marginTop: responsiveHeight(3),
+          }}>
+          <InfoCard
+            CardStyles={{
+              backgroundColor: 'white',
+              paddingHorizontal: responsiveHeight(3),
+              height: responsiveHeight(14),
+              gap: responsiveHeight(1),
+            }}>
+            <Text style={styles.heading}>Sign in for points</Text>
+            <View style={styles.pointsContainer}>
+              {/* <View style={styles.pointsContainer}> */}
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.grayCoin}></Image>
+                <Text style={styles.iconTxt}>Day 1</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.goldCoin}></Image>
+                <Text style={styles.iconSeletedTxt}>Day 2</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.goldCoin}></Image>
+                <Text style={styles.iconSeletedTxt}>Day 3</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.goldCoin}></Image>
+                <Text style={styles.iconSeletedTxt}>Day 4</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.goldCoin}></Image>
+                <Text style={styles.iconSeletedTxt}>Day 5</Text>
+              </View>
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={images.goldCoin}></Image>
+                <Text style={styles.iconSeletedTxt}>Day 6</Text>
+              </View>
+            </View>
+          </InfoCard>
+        </View>
+
+        <FlatList
+          scrollEnabled
+          renderItem={renderItem}
+          data={Dummy_data}
+          keyExtractor={item => item.id}
+        />
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     flexDirection: 'row',
     width: responsiveWidth(80),
-    height: responsiveHeight(10),
+
     alignSelf: 'center',
   },
   iconSeletedTxt: {

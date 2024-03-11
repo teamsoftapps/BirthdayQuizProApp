@@ -17,7 +17,7 @@ import {
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
 import LeaderBoard from '../Screens/Appscreen/IntroScreen/LeaderBoard';
 import DrawerStack from './DrawerStack';
-import Notifications from '../Screens/Appscreen/IntroScreen/Notifications';
+import Notifications from '../Screens/Appscreen/Notifications';
 import Notification from '../Screens/Appscreen/IntroScreen/Notification';
 import Home from '../Screens/Appscreen/IntroScreen/Home';
 

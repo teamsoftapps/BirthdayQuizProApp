@@ -9,6 +9,7 @@ import Stacks from './src/Routes/Routes';
 import Routes from './src/Routes/Routes';
 import Home from './src/Screens/Appscreen/IntroScreen/Home';
 import LeaderBoard from './src/Screens/Appscreen/IntroScreen/LeaderBoard';
+import Rewards from './src/Screens/Appscreen/IntroScreen/Rewards';
 // import ManageBirthday from './src/Screens/IntroScreen/ManageBirthday';
 // import Bottomtabs from './src/stacks/Bottomtabs';
 // import Notifications from './src/Screens/Appscreen/Notifications';

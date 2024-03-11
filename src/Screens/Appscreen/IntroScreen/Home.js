@@ -19,16 +19,15 @@ import {
 } from 'react-native-responsive-dimensions';
 import {dammy} from '../../../json/HomeJson';
 import ButtonComp from '../../../components/Buttons/ButtonComp';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
 import Results from './Results';
 import All from './All';
 import Family from './Family';
 import Friends from './Friends';
 import CelebandHist from './CelebandHist';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 
-const Tab = createMaterialTopTabNavigator();
 const Home = ({route}) => {
   const {item} = route.params || {};
   console.log('object', item);
@@ -54,7 +53,7 @@ const Home = ({route}) => {
               navigation.navigate('Streak');
             }}
             onPress={() => {
-              navigation.openDrawer();
+              navigation.dispatch(DrawerActions.openDrawer());
             }}
           />
 
@@ -179,124 +178,6 @@ const Home = ({route}) => {
             Upcoming Birthdays
           </Text>
         </View>
-
-        {/* <View style={{flex: 1}}>
-          <Tab.Navigator
-            screenOptions={{
-              swipeEnabled: true,
-              tabBarStyle: {
-                backgroundColor: 'transparent',
-              },
-              tabBarScrollEnabled: true,
-              tabBarIndicatorStyle: {backgroundColor: 'transparent'},
-              tabBarItemStyle: {
-                width:
-                  Tab.Screen === 'Celebrities & Historical Figures' ? '' : null,
-              },
-            }}>
-            <Tab.Screen
-              options={{
-                tabBarLabel: ({focused, color}) => (
-                  <View>
-                    <View
-                      style={{
-                        backgroundColor: focused ? '#fff' : 'transparent',
-                        borderRadius: responsiveWidth(5),
-                        paddingHorizontal: responsiveWidth(5),
-                        paddingVertical: responsiveHeight(0.5),
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: responsiveWidth(20),
-                      }}>
-                      <Text style={{color: focused ? '#000' : '#fff'}}>
-                        All
-                      </Text>
-                    </View>
-                  </View>
-                ),
-              }}
-              name="All"
-              component={() => {
-                return (
-                  <View
-                    style={{
-                      flex: 1,
-                      backgroundColor: 'red',
-                      zIndex: -999999999,
-                    }}></View>
-                );
-              }}
-            />
-            <Tab.Screen
-              options={{
-                tabBarLabel: ({focused, color}) => (
-                  <View
-                    style={{
-                      backgroundColor: focused ? '#fff' : 'transparent',
-                      borderRadius: responsiveWidth(5),
-                      paddingVertical: responsiveHeight(0.5),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: responsiveWidth(20),
-                    }}>
-                    <Text style={{color: focused ? '#000' : '#fff'}}>
-                      Family
-                    </Text>
-                  </View>
-                ),
-              }}
-              name="Family"
-              component={Family}
-            />
-            <Tab.Screen
-              options={{
-                tabBarLabel: ({focused, color}) => (
-                  <View
-                    style={{
-                      backgroundColor: focused ? '#fff' : 'transparent',
-                      borderRadius: responsiveWidth(5),
-                      paddingVertical: responsiveHeight(0.5),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: responsiveWidth(20),
-                    }}>
-                    <Text style={{color: focused ? '#000' : '#fff'}}>
-                      Friends
-                    </Text>
-                  </View>
-                ),
-              }}
-              name="Friends"
-              component={Friends}
-            />
-            <Tab.Screen
-              options={{
-                tabBarLabel: ({focused, color}) => (
-                  <View
-                    style={{
-                      backgroundColor: focused ? '#fff' : 'transparent',
-                      borderRadius: responsiveWidth(5),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: responsiveWidth(60),
-                      paddingVertical: responsiveHeight(0.5),
-                      // left: responsiveWidth(10),
-                    }}>
-                    <Text
-                      style={{
-                        color: focused ? '#000' : '#fff',
-                        // fontSize: responsiveFontSize(1.5),
-                      }}>
-                      Celebrities & Historical Figures
-                    </Text>
-                  </View>
-                ),
-              }}
-              name="Celebrities & Historical Figures"
-              component={CelebandHist}
-            />
-          </Tab.Navigator>
-        </View> */}
       </SafeAreaView>
     </ImageBackground>
   );

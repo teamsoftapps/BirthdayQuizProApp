@@ -5,12 +5,14 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
 import {colors, images} from '../../../utlies';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {
+  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
@@ -46,22 +48,22 @@ const Notification = () => {
             data={Dummy}
             renderItem={({item, index}) => {
               return (
-                <View
-                  // onTouchEnd={() => navigation.navigate('Not', {item: item})}
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Rewards')}
                   style={{
-                    height: responsiveHeight(20),
+                    height: responsiveHeight(15),
                     backgroundColor: colors.BtnGreen,
                     borderRadius: responsiveWidth(3),
-                    marginVertical: responsiveHeight(2),
+                    marginVertical: responsiveHeight(1),
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    paddingVertical: responsiveHeight(1),
-                    paddingHorizontal: responsiveWidth(5),
+                    paddingVertical: responsiveHeight(1.5),
+                    paddingHorizontal: responsiveWidth(3),
                   }}>
                   <View
                     style={{
                       backgroundColor: '#fff',
-                      padding: 2,
+                      padding: responsiveWidth(2),
                       borderRadius: responsiveWidth(10),
                       width: responsiveWidth(8),
                       alignItems: 'center',
@@ -78,15 +80,21 @@ const Notification = () => {
                     />
                   </View>
 
-                  <View style={{flex: 1}}>
+                  <View style={{flex: 1, marginHorizontal: responsiveWidth(3)}}>
                     <Text
-                      style={{fontSize: 16, color: '#000', fontWeight: '500'}}>
+                      style={{
+                        fontSize: responsiveFontSize(2.2),
+                        color: '#000',
+                        fontWeight: '700',
+                      }}>
                       {item.title}
                     </Text>
                     <Text
+                      numberOfLines={2}
                       style={{
                         fontSize: 15,
                         marginVertical: responsiveHeight(1),
+                        fontWeight: '500',
                       }}>
                       {item.desc}
                     </Text>
@@ -107,7 +115,7 @@ const Notification = () => {
                     }}>
                     {item.time}
                   </Text>
-                </View>
+                </TouchableOpacity>
               );
             }}
           />

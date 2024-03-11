@@ -6,6 +6,7 @@ import DrawerStack from './DrawerStack';
 import DailyQuiz from '../Screens/Appscreen/IntroScreen/DailyQuiz';
 import Win from '../Screens/Appscreen/IntroScreen/Win';
 import Streak from '../Screens/Appscreen/Streak';
+import Rewards from '../Screens/Appscreen/IntroScreen/Rewards';
 
 const AppStack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ const MainStack = () => {
       <AppStack.Screen name="DailyQuiz" component={DailyQuiz} />
       <AppStack.Screen name="Win" component={Win} />
       <AppStack.Screen name="Streak" component={Streak} />
+      <AppStack.Screen name="Rewards" component={Rewards} />
     </AppStack.Navigator>
   );
 };
