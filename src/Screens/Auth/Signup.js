@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
@@ -84,6 +85,7 @@ const Signup = () => {
       style={{
         flex: 1,
         backgroundColor: colors.primary,
+        height: Dimensions.get('window').height,
       }}>
       <StatusBar
         translucent={true}

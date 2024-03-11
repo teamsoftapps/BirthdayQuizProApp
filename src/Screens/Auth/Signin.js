@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   Image,
   ImageBackground,
   StatusBar,
@@ -22,6 +23,7 @@ import {colors, images} from '../../utlies';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TinputWlabel from '../../components/TextInput/TinputWlabel';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 //   import {AvoidSoftInput} from 'react-native-avoid-softinput';
 //   import {useFocusEffect} from '@react-navigation/native';
 //   import useToast from '../../Hooks';
@@ -91,6 +93,7 @@ const Signin = () => {
       style={{
         flex: 1,
         backgroundColor: colors.primary,
+        height: Dimensions.get('window').height,
       }}>
       <StatusBar
         translucent={true}
@@ -98,88 +101,89 @@ const Signin = () => {
         backgroundColor={'transparent'}
       />
 
-      <SafeAreaView
-        edges={['top']}
-        style={{flex: 1, marginHorizontal: responsiveWidth(6)}}>
-        <Text style={styles.intro_small}>Sign In</Text>
+      <KeyboardAwareScrollView>
+        <SafeAreaView
+          edges={['top']}
+          style={{flex: 1, marginHorizontal: responsiveWidth(6)}}>
+          <Text style={styles.intro_small}>Sign In</Text>
 
-        <View style={{marginTop: responsiveHeight(3)}}>
-          <Image source={images.party} style={styles.image}></Image>
-          <Text style={styles.txt_intro}>Welcome Back!</Text>
-          <Text style={styles.txt_intro_2}>Signin to continue</Text>
-        </View>
-
-        <View style={{marginVertical: responsiveHeight(4)}}>
-          <TinputWlabel
-            text="Email"
-            placeholder="Email"
-            showImage={images.check}
-          />
-
-          <TinputWlabel
-            inputstyle={{marginTop: responsiveHeight(2)}}
-            text="Password"
-            placeholder="Password"
-            showImage={images.check}
-          />
-
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginTop: responsiveHeight(2),
-            }}>
-            <View style={{flexDirection: 'row'}}>
-              <TouchableOpacity
-                onPress={() => {
-                  setcheck(!check);
-                }}
-                activeOpacity={1}
-                style={{
-                  width: responsiveWidth(5),
-                  height: responsiveHeight(2.5),
-                  borderWidth: responsiveWidth(0.4),
-                  borderColor: check ? '#fff' : '#d7d7d7',
-                  borderRadius: responsiveWidth(1),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                {check && (
-                  <Image
-                    source={images.check}
-                    style={{
-                      width: responsiveWidth(3),
-                      height: responsiveWidth(3),
-                      tintColor: '#fff',
-                    }}
-                  />
-                )}
-              </TouchableOpacity>
-              <Text
-                style={{marginHorizontal: responsiveWidth(3), color: '#fff'}}>
-                Remember me
-              </Text>
-            </View>
-            <Text style={{color: colors.BtnGreen}}>Forgot password?</Text>
+          <View style={{marginTop: responsiveHeight(3)}}>
+            <Image source={images.party} style={styles.image}></Image>
+            <Text style={styles.txt_intro}>Welcome Back!</Text>
+            <Text style={styles.txt_intro_2}>Signin to continue</Text>
           </View>
-        </View>
 
-        <View>
-          <SubmitButton
-            btnStyles={{width: '100%', height: responsiveHeight(8)}}
-            title={'Sign In'}
-          />
-          <Text style={{color: 'white', marginTop: responsiveHeight(2)}}>
-            Don't have an account?{' '}
-            <Text
-              onPress={() => navigation.navigate('signup')}
-              style={{fontWeight: 'bold', color: colors.secondary}}>
-              Sign up
+          <View style={{marginVertical: responsiveHeight(4)}}>
+            <TinputWlabel
+              text="Email"
+              placeholder="Email"
+              showImage={images.check}
+            />
+
+            <TinputWlabel
+              inputstyle={{marginTop: responsiveHeight(2)}}
+              text="Password"
+              placeholder="Password"
+              showImage={images.check}
+            />
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginTop: responsiveHeight(2),
+              }}>
+              <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setcheck(!check);
+                  }}
+                  activeOpacity={1}
+                  style={{
+                    width: responsiveWidth(5),
+                    height: responsiveHeight(2.5),
+                    borderWidth: responsiveWidth(0.4),
+                    borderColor: check ? '#fff' : '#d7d7d7',
+                    borderRadius: responsiveWidth(1),
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  {check && (
+                    <Image
+                      source={images.check}
+                      style={{
+                        width: responsiveWidth(3),
+                        height: responsiveWidth(3),
+                        tintColor: '#fff',
+                      }}
+                    />
+                  )}
+                </TouchableOpacity>
+                <Text
+                  style={{marginHorizontal: responsiveWidth(3), color: '#fff'}}>
+                  Remember me
+                </Text>
+              </View>
+              <Text style={{color: colors.BtnGreen}}>Forgot password?</Text>
+            </View>
+          </View>
+
+          <View>
+            <SubmitButton
+              btnStyles={{width: '100%', height: responsiveHeight(8)}}
+              title={'Sign In'}
+            />
+            <Text style={{color: 'white', marginTop: responsiveHeight(2)}}>
+              Don't have an account?{' '}
+              <Text
+                onPress={() => navigation.navigate('signup')}
+                style={{fontWeight: 'bold', color: colors.secondary}}>
+                Sign up
+              </Text>
             </Text>
-          </Text>
-        </View>
-
+          </View>
+          {/* 
         <View
           style={{
             flexDirection: 'row',
@@ -239,8 +243,9 @@ const Signin = () => {
               resizeMode: 'contain',
             }}
           />
-        </View>
-      </SafeAreaView>
+        </View> */}
+        </SafeAreaView>
+      </KeyboardAwareScrollView>
 
       {/* </ScrollView> */}
       {/* </GestureHandlerRootView> */}

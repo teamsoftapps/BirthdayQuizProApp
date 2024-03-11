@@ -7,7 +7,7 @@ import MainStack from './MainStack';
 import {AuthStacks} from './AuthStacks';
 
 const Routes = () => {
-  const [dummyAuthenticated, setDummyAuthenticated] = useState(false);
+  const [dummyAuthenticated, setDummyAuthenticated] = useState(true);
   return dummyAuthenticated ? (
     <AuthStacks />
   ) : (
