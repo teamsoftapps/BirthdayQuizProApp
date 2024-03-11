@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
-  Dimensions,
+  Dimensions,KeyboardAvoidingView,Platform, Pressable,Ke, Keyboard
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
@@ -24,7 +24,6 @@ import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TinputWlabel from '../../components/TextInput/TinputWlabel';
 import ButtonComp from '../../components/Buttons/ButtonComp';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 const Signup = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(0);
@@ -92,14 +91,13 @@ const Signup = () => {
         barStyle={'default'}
         backgroundColor={'transparent'}
       />
+<KeyboardAvoidingView
+behavior={Platform.OS ==='ios'?'padding':"height"}
 
-      <SafeAreaView
-        style={{
-          flex: 1,
-          marginHorizontal: responsiveWidth(6),
-          gap: responsiveHeight(5),
-        }}>
-        <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+>
+<Pressable onTouchEnd={Keyboard.dismiss()}>
+     
+
           <View
             style={{
               marginTop: responsiveHeight(10),
@@ -148,8 +146,10 @@ const Signup = () => {
               Sign in
             </Text>
           </Text>
-        </KeyboardAwareScrollView>
-      </SafeAreaView>
+      
+      
+      </Pressable>
+      </KeyboardAvoidingView>
     </ImageBackground>
   );
 };

@@ -14,7 +14,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
-import {Calendar, CalendarList, LocaleConfig} from 'react-native-calendars';
+import {Calendar} from 'react-native-calendars';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 

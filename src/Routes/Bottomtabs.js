@@ -20,6 +20,7 @@ import DrawerStack from './DrawerStack';
 import Notifications from '../Screens/Appscreen/Notifications';
 import Notification from '../Screens/Appscreen/IntroScreen/Notification';
 import Home from '../Screens/Appscreen/IntroScreen/Home';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Bottomtabs = () => {
   const _renderIcon = (routeName, selectedTab) => {
@@ -75,7 +76,9 @@ const Bottomtabs = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView
+    edges={['bottom']}
+    style={{flex: 1,backgroundColor:'black'}}>
       <CurvedBottomBar.Navigator
         screenOptions={{
           headerShown: false,
@@ -132,7 +135,7 @@ const Bottomtabs = () => {
           }}
         />
       </CurvedBottomBar.Navigator>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -141,7 +144,7 @@ export default Bottomtabs;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 20,backgroundColor:'black'
   },
   button: {
     marginVertical: 5,

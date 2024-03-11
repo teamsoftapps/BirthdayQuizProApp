@@ -7,7 +7,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View,KeyboardAvoidingView ,Platform,Keyboard
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {SubmitButton} from '../../components/Buttons/SubmitButton';
@@ -23,7 +23,8 @@ import {colors, images} from '../../utlies';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TinputWlabel from '../../components/TextInput/TinputWlabel';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { } from 'react-native';
+import { Pressable } from 'react-native';
 //   import {AvoidSoftInput} from 'react-native-avoid-softinput';
 //   import {useFocusEffect} from '@react-navigation/native';
 //   import useToast from '../../Hooks';
@@ -101,7 +102,16 @@ const Signin = () => {
         backgroundColor={'transparent'}
       />
 
-      <KeyboardAwareScrollView>
+      <KeyboardAvoidingView
+      behavior={Platform.OS =='ios'?'padding':'height'}
+      
+      
+      >
+<Pressable
+onTouchEnd={Keyboard.dismiss()}
+
+>
+
         <SafeAreaView
           edges={['top']}
           style={{flex: 1, marginHorizontal: responsiveWidth(6)}}>
@@ -245,7 +255,8 @@ const Signin = () => {
           />
         </View> */}
         </SafeAreaView>
-      </KeyboardAwareScrollView>
+        </Pressable>
+      </KeyboardAvoidingView>
 
       {/* </ScrollView> */}
       {/* </GestureHandlerRootView> */}
