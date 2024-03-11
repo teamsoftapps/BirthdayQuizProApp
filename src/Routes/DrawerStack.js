@@ -14,10 +14,17 @@ const Drawer = createDrawerNavigator();
 const DrawerStack = () => {
   return (
     <Drawer.Navigator
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
       }}>
-      <Drawer.Screen name="Results" component={Home} />
+      <Drawer.Screen
+        name="Home1"
+        component={Home}
+        options={{
+          drawerLabel: 'Home',
+        }}
+      />
       <Drawer.Screen name="ManageBirthday" component={ManageBirthday} />
       <Drawer.Screen name="LeaderBoard" component={LeaderBoard} />
       <Drawer.Screen name="Rewards" component={Rewards} />

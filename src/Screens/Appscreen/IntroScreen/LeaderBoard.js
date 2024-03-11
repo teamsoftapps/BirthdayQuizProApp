@@ -22,6 +22,33 @@ import {Dummy} from '../../../json/LaederBoardJson';
 const LeaderBoard = () => {
   const [selected, setSelected] = useState(false);
 
+  const header = () => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          backgroundColor: 'gold',
+          height: responsiveHeight(6),
+          borderRadius: responsiveHeight(6),
+          paddingHorizontal: responsiveWidth(5),
+          marginHorizontal: responsiveWidth(2),
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flex: 0.7,
+            justifyContent: 'space-between',
+          }}>
+          <Text style={{color: '#000'}}>Rank </Text>
+
+          <Text style={{color: '#000'}}>Name & Level</Text>
+        </View>
+        <Text style={{color: '#000'}}>Points</Text>
+      </View>
+    );
+  };
   return (
     <ImageBackground
       source={images.birthdayBG}
@@ -346,7 +373,7 @@ const LeaderBoard = () => {
             overflow: 'hidden',
             paddingTop: responsiveHeight(1),
           }}>
-          <View
+          {/* <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -368,8 +395,10 @@ const LeaderBoard = () => {
               <Text style={{color: '#000'}}>Name & Level</Text>
             </View>
             <Text style={{color: '#000'}}>Points</Text>
-          </View>
+          </View> */}
           <FlatList
+            ListHeaderComponent={header}
+            stickyHeaderIndices={[0]}
             ListFooterComponent={() => {
               return (
                 <View

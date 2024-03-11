@@ -1,6 +1,5 @@
 import {
   Alert,
-  Animated,
   Image,
   StyleSheet,
   Text,
@@ -8,9 +7,6 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-
-import Notifications from '../Screens/Appscreen/Notifications';
 import {images} from '../utlies';
 
 import {
@@ -19,10 +15,11 @@ import {
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
-import Streak from '../Screens/Appscreen/Streak';
-import Home from '../Screens/Appscreen/IntroScreen/Home';
 import LeaderBoard from '../Screens/Appscreen/IntroScreen/LeaderBoard';
 import DrawerStack from './DrawerStack';
+import Notifications from '../Screens/Appscreen/Notifications';
+import Notification from '../Screens/Appscreen/IntroScreen/Notification';
+import Home from '../Screens/Appscreen/IntroScreen/Home';
 
 const Bottomtabs = () => {
   const _renderIcon = (routeName, selectedTab) => {
@@ -121,7 +118,18 @@ const Bottomtabs = () => {
         <CurvedBottomBar.Screen
           position="RIGHT"
           name="Notifications"
-          component={LeaderBoard}
+          component={Notification}
+        />
+
+        <CurvedBottomBar.Screen
+          // position="RIGHT"
+          name="Not"
+          component={Home}
+          options={{
+            tabBarStyle: {
+              display: 'none',
+            },
+          }}
         />
       </CurvedBottomBar.Navigator>
     </View>

@@ -34,13 +34,6 @@ const slides = [
     image: images.intro2,
     backgroundColor: '#febe29',
   },
-  {
-    key: 3,
-    title: 'Rocket guy',
-    text: "I'm already out of descriptions\n\nLorem ipsum bla bla bla",
-    image: images.intro,
-    backgroundColor: '#22bcb5',
-  },
 ];
 const IntroScreen = () => {
   const [showRealApp, setShowRealApp] = useState(false);
@@ -83,7 +76,6 @@ const IntroScreen = () => {
 
   return (
     <AppIntroSlider
-      // showNextButton={false}
       showNextButton={true}
       dotStyle={dotStyle}
       activeDotStyle={activeDotStyle}

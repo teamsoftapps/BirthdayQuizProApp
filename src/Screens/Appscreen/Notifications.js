@@ -17,9 +17,11 @@ import {
 } from 'react-native-responsive-dimensions';
 import ButtonComp from '../../components/Buttons/ButtonComp';
 import ModalComp from '../../components/Modal/ModalComp';
+import {useNavigation} from '@react-navigation/native';
 
 const Notifications = () => {
   const [isVisible, setisVisible] = useState(false);
+  const navigation = useNavigation();
   return (
     <ImageBackground
       style={{flex: 1, backgroundColor: '#715CE4'}}
@@ -27,6 +29,7 @@ const Notifications = () => {
       <StatusBar barStyle={'light-content'} backgroundColor={'#715CE4'} />
 
       <HeaderComp
+        navigation={navigation}
         headerStyle={{
           marginHorizontal: responsiveWidth(3),
           marginTop: responsiveHeight(7),

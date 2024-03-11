@@ -8,28 +8,30 @@ import {
 } from 'react-native-responsive-dimensions';
 
 // export const SubmitButton = ({title, buttonStyles, key}) => {
-export const SubmitButton = ({ navigate, title, btnStyles}) => {
+export const SubmitButton = ({navigate, title, btnStyles}) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={()=>navigation.navigate(`${navigate}`)} style={[styles.container,btnStyles]}>
-    {/* // <TouchableOpacity onPress={()=>   navigation.navigate('signin')} style={[styles.container,btnStyles]}> */}
+    <TouchableOpacity
+      onPress={() => navigation.navigate(`${navigate}`)}
+      style={[styles.container, btnStyles]}>
+      {/* // <TouchableOpacity onPress={()=>   navigation.navigate('signin')} style={[styles.container,btnStyles]}> */}
       <Text style={[styles.btnText]}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-  // if (title === 'Signup') {
-  //   return (
-  //     <TouchableOpacity style={styles.signup}>
-  //       <Text style={[styles.btnText]}>{title}</Text>
-  //     </TouchableOpacity>
-  //   );
-  // }
+// if (title === 'Signup') {
+//   return (
+//     <TouchableOpacity style={styles.signup}>
+//       <Text style={[styles.btnText]}>{title}</Text>
+//     </TouchableOpacity>
+//   );
+// }
 const styles = StyleSheet.create({
   btnText: {
     color: 'black',
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(2.5),
     textAlign: 'center',
     fontWeight: 'bold',
   },
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     width: responsiveWidth(80),
     backgroundColor: '#98FF98',
     borderRadius: responsiveHeight(10),
-    height: responsiveHeight(6.5),
+    height: responsiveHeight(7),
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',

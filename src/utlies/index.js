@@ -83,6 +83,9 @@ export const images = {
   share2: require('../Assets/share2.png'),
   close: require('../Assets/close.png'),
   trophy2: require('../Assets/trophy2.png'),
+  check: require('../Assets/check.png'),
+  setting: require('../Assets/setting.png'),
+  bellring: require('../Assets/bellring.png'),
 };
 
 // export const colors = {

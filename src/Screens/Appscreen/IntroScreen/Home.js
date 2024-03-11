@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Image,
   ImageBackground,
@@ -28,7 +29,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 
 const Tab = createMaterialTopTabNavigator();
-const Home = () => {
+const Home = ({route}) => {
+  const {item} = route.params || {};
+  console.log('object', item);
   const navigation = useNavigation();
   return (
     <ImageBackground
@@ -177,7 +180,7 @@ const Home = () => {
           </Text>
         </View>
 
-        <View style={{flex: 1}}>
+        {/* <View style={{flex: 1}}>
           <Tab.Navigator
             screenOptions={{
               swipeEnabled: true,
@@ -293,7 +296,7 @@ const Home = () => {
               component={CelebandHist}
             />
           </Tab.Navigator>
-        </View>
+        </View> */}
       </SafeAreaView>
     </ImageBackground>
   );

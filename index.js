@@ -16,5 +16,14 @@ import LeaderBoard from './src/Screens/Appscreen/IntroScreen/LeaderBoard';
 // import LearningScreen from './src/Screens/Appscreen/IntroScreen/LearningScreen';
 
 // AppRegistry.registerComponent(appName, () => App);
+
+// import {MMKV} from 'react-native-mmkv';
+
+// export const storage = new MMKV({
+//   id: `user-storage`,
+//   path: `${USER_DIRECTORY}/storage`,
+//   encryptionKey: 'encryptionkey',
+// });
+
 AppRegistry.registerComponent(appName, () => Routes);
 // AppRegistry.registerComponent(appName, () => LearningScreen);
